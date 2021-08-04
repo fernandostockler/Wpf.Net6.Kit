@@ -39,40 +39,6 @@ namespace Wpf.Net6.Kit.Controls
             AllowsTransparency = true;
         }
 
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            base.OnKeyDown(e);
-            CheckKioskExitKeyGesture(e);
-
-            void CheckKioskExitKeyGesture(KeyEventArgs e)
-            {
-                KioskExitKeyGesture k = KioskModeExitKeyGesture;
-                bool match = KioskModeExitKeyGesture.ModifierKeys.Length switch
-                {
-                    1 => k.ModifierKeys[0] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[0]),
-
-                    2 => k.ModifierKeys[0] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[0]) &&
-                         k.ModifierKeys[1] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[1]),
-
-                    3 => k.ModifierKeys[0] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[0]) &&
-                         k.ModifierKeys[1] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[1]) &&
-                         k.ModifierKeys[2] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[2]),
-
-                    /// Unselect the 3 lines below if you need to alert that only 3 first items will be processed.
-                    //> 3 => throw new ArrayExceedsMaximumLengthException(
-                    //       arrayName: "KioskExitKeyGesture.ModifierKeys[ ]",
-                    //       message: $"There are {k.ModifierKeys.Length} items in KioskModeExitKeyGesture.ModifierKeys[ ] array. It can hold only 3 items."),
-
-                    _ => false,
-                };
-                if (match && (e.Key == KioskModeExitKeyGesture.Key || e.SystemKey == KioskModeExitKeyGesture.Key))
-                {
-                    e.Handled = true;
-                    KioskMode = false;
-                }
-            }
-        }
-
         private void CustomWindow_Loaded(object sender, RoutedEventArgs e)
         {
             OnKioskModeChanged(this, new(KioskModeProperty, KioskMode, KioskMode));
@@ -134,10 +100,7 @@ namespace Wpf.Net6.Kit.Controls
         /// Sets CustomDialog visibility to Visibility.Collapsed
         /// </summary>
         /// <remarks>This event handler is only used thru GetDefaultCustomDialog() function.</remarks>
-        private void CustomDialogEnterButton_Click(object sender, RoutedEventArgs e)
-        {
-            ShowCustomDialog = false;
-        }
+        private void CustomDialogEnterButton_Click(object sender, RoutedEventArgs e) => ShowCustomDialog = false;
 
         /// <summary=> Shadows the WindowStyle property to prevent it from being changed from WindowStyle.None .
         /// <remarks=> Any attempt to modify this property will launch an exception:
@@ -513,25 +476,13 @@ namespace Wpf.Net6.Kit.Controls
             Right
         }
 
-        private void CloseWindow(object sender, ExecutedRoutedEventArgs e)
-        {
-            Close();
-        }
+        private void CloseWindow(object sender, ExecutedRoutedEventArgs e) => Close();
 
-        private void CanMinimizeWindow(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = ResizeMode != ResizeMode.NoResize;
-        }
+        private void CanMinimizeWindow(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = ResizeMode != ResizeMode.NoResize;
 
-        private void CanResizeWindow(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = ResizeMode is ResizeMode.CanResize or ResizeMode.CanResizeWithGrip;
-        }
+        private void CanResizeWindow(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = ResizeMode is ResizeMode.CanResize or ResizeMode.CanResizeWithGrip;
 
-        private void MinimizeWindow(object sender, ExecutedRoutedEventArgs e)
-        {
-            SystemCommands.MinimizeWindow(this);
-        }
+        private void MinimizeWindow(object sender, ExecutedRoutedEventArgs e) => SystemCommands.MinimizeWindow(this);
 
         private void MaximizeRestoreWindow(object sender, ExecutedRoutedEventArgs e)
         {
@@ -540,6 +491,40 @@ namespace Wpf.Net6.Kit.Controls
                 window.WindowState = (window.WindowState == WindowState.Normal)
                     ? WindowState.Maximized
                     : WindowState.Normal;
+            }
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+            CheckKioskExitKeyGesture(e);
+
+            void CheckKioskExitKeyGesture(KeyEventArgs e)
+            {
+                KioskExitKeyGesture k = KioskModeExitKeyGesture;
+                bool match = KioskModeExitKeyGesture.ModifierKeys.Length switch
+                {
+                    1 => k.ModifierKeys[0] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[0]),
+
+                    2 => k.ModifierKeys[0] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[0]) &&
+                         k.ModifierKeys[1] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[1]),
+
+                    3 => k.ModifierKeys[0] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[0]) &&
+                         k.ModifierKeys[1] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[1]) &&
+                         k.ModifierKeys[2] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[2]),
+
+                    /// Unselect the 3 lines below if you need to alert that only 3 first items will be processed.
+                    //> 3 => throw new ArrayExceedsMaximumLengthException(
+                    //       arrayName: "KioskExitKeyGesture.ModifierKeys[ ]",
+                    //       message: $"There are {k.ModifierKeys.Length} items in KioskModeExitKeyGesture.ModifierKeys[ ] array. It can hold only 3 items."),
+
+                    _ => false,
+                };
+                if (match && (e.Key == KioskModeExitKeyGesture.Key || e.SystemKey == KioskModeExitKeyGesture.Key))
+                {
+                    e.Handled = true;
+                    KioskMode = false;
+                }
             }
         }
 

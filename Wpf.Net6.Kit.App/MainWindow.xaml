@@ -1,15 +1,17 @@
-﻿<Window x:Class="Wpf.Net6.Kit.App.MainWindow"
+﻿<controls:CustomWindow x:Class="Wpf.Net6.Kit.App.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Wpf.Net6.Kit.App"
+        xmlns:controls="clr-namespace:Wpf.Net6.Kit.Controls;assembly=Wpf.Net6.Kit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Main Window" 
+        Height="450" 
+        Width="800" 
+        CustomDialogBackground="#FF921793" ShowCustomDialog="True" OverlayBackground="#FF1E9197" TitleBarHeight="52">
+    <controls:CustomWindow.IconArea>
+        <Image Source="/Death Star - 2nd (2015_10_12 18_49_50 UTC).png" Margin="5"/>
+    </controls:CustomWindow.IconArea>
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/amigos.jpg"/>
-        </Grid.Background>
-
     </Grid>
-</Window>
+</controls:CustomWindow>

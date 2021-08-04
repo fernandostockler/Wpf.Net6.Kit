@@ -8,14 +8,8 @@ namespace Wpf.Net6.Kit.Controls.Shared
     [ValueConversion(typeof(double), typeof(GridLength))]
     public class DoubleToGridlenghtConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return (value is double height) ? new GridLength(height) : value;
-        }
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => (value is double height) ? new GridLength(height) : value;
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();
     }
 }
