@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>G:\ImagensDATA\Work Images\Genres-music-icons\Ico (27) (2015_09_19 07_11_09 UTC).ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="amigos.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="amigos.jpg" />
+  </ItemGroup>
+
+</Project>
