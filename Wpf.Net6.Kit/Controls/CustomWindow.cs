@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Shell;
 using Wpf.Net6.Kit.Controls.Shared;
 
@@ -215,11 +206,7 @@ namespace Wpf.Net6.Kit.Controls
                 propertyType: typeof(KioskExitKeyGesture),
                 ownerType: typeof(CustomWindow),
                 typeMetadata: new PropertyMetadata(
-                    defaultValue: new KioskExitKeyGesture()
-                    {
-                        Key = Key.End,
-                        ModifierKeys = new ModifierKeys[] { ModifierKeys.Shift, ModifierKeys.Alt }
-                    }));
+                    defaultValue: new KioskExitKeyGesture(Key.End, new ModifierKeys[] { ModifierKeys.Shift, ModifierKeys.Alt })));
 
         public DataTemplate IconTemplate
         {
@@ -373,7 +360,7 @@ namespace Wpf.Net6.Kit.Controls
         {
             CustomWindow? win = (CustomWindow)d;
             Brush? newValue = (Brush)e.NewValue;
-            Converters.BackgroundToForegroundConverter? converter = Converters.BackgroundToForegroundConverter.Instance;
+            BackgroundToForegroundConverter? converter = BackgroundToForegroundConverter.Instance;
             Brush? newIdealForeground = converter.Convert(newValue, typeof(Brush), new object(), CultureInfo.CurrentCulture) as Brush;
             win.TitleBarForeground = newIdealForeground ?? SystemColors.HotTrackBrush;
         }
@@ -392,6 +379,64 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(CustomWindow),
                 typeMetadata: new PropertyMetadata(
                     defaultValue: null));
+
+        [Category(CustomWindowCategory)]
+        [Description("Obtem ou define um pincel que representa o plano de fundo da camada que cobre a janela.")]
+        public Brush OverlayBackground
+        {
+            get => (Brush)GetValue(OverlayBackgroundProperty);
+            set => SetValue(OverlayBackgroundProperty, value);
+        }
+        public static readonly DependencyProperty OverlayBackgroundProperty =
+            DependencyProperty.Register(
+                name: nameof(OverlayBackground),
+                propertyType: typeof(Brush),
+                ownerType: typeof(CustomWindow),
+                typeMetadata: new PropertyMetadata(
+                    defaultValue: Brushes.Gray));
+
+        [Category(CustomWindowCategory)]
+        [Description("Obtem ou define a visibilidade da camada que cobre a janela.")]
+        public bool ShowCustomDialog
+        {
+            get => (bool)GetValue(ShowCustomDialogProperty);
+            set => SetValue(ShowCustomDialogProperty, value);
+        }
+        public static readonly DependencyProperty ShowCustomDialogProperty =
+            DependencyProperty.Register(
+                name: nameof(ShowCustomDialog),
+                propertyType: typeof(bool),
+                ownerType: typeof(CustomWindow),
+                typeMetadata: new PropertyMetadata(
+                    defaultValue: false));
+
+        [Category(CustomWindowCategory)]
+        public FrameworkElement CustomDialog
+        {
+            get => (FrameworkElement)GetValue(CustomDialogProperty);
+            set => SetValue(CustomDialogProperty, value);
+        }
+        public static readonly DependencyProperty CustomDialogProperty =
+            DependencyProperty.Register(
+                name: nameof(CustomDialog),
+                propertyType: typeof(FrameworkElement),
+                ownerType: typeof(CustomWindow),
+                typeMetadata: new PropertyMetadata(
+                    defaultValue: null));
+
+        [Category(CustomWindowCategory)]
+        public Brush CustomDialogBackground
+        {
+            get => (Brush)GetValue(CustomDialogBackgroundProperty);
+            set => SetValue(CustomDialogBackgroundProperty, value);
+        }
+        public static readonly DependencyProperty CustomDialogBackgroundProperty =
+            DependencyProperty.Register(
+                name: nameof(CustomDialogBackground),
+                propertyType: typeof(Brush),
+                ownerType: typeof(CustomWindow),
+                typeMetadata: new PropertyMetadata(
+                    defaultValue: Brushes.DarkBlue));
 
         private static readonly Thickness NormalThickness = new(0);
         private static double WindowsTaskbarHeight => SystemParameters.PrimaryScreenHeight - SystemParameters.FullPrimaryScreenHeight - SystemParameters.WindowCaptionHeight;
