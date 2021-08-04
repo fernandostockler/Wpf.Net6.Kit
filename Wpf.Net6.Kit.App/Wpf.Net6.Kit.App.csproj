@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <None Remove="amigos.jpg" />
-    <None Remove="Death Star - 2nd %282015_10_12 18_49_50 UTC%29.png" />
+    <None Remove="Death Star.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <Resource Include="amigos.jpg" />
-    <Resource Include="Death Star - 2nd (2015_10_12 18_49_50 UTC).png" />
+    <Resource Include="Death Star.png" />
   </ItemGroup>
 
 </Project>

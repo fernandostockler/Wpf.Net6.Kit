@@ -20,7 +20,7 @@ namespace Wpf.Net6.Kit.Controls.Shared
             Key = key;
             ModifierKeys = modifierKeys;
         }
-
+        
         public override string ToString()
         {
             StringBuilder sb = new();

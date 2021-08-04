@@ -28,24 +28,25 @@ namespace Wpf.Net6.Kit.Controls
 
         public CustomWindow()
         {
+            WindowStyle = WindowStyle.None;
+            AllowsTransparency = true;
+            StateChanged += CustomWindow_StateChanged;
+            Loaded += CustomWindow_Loaded;
             _ = CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, CloseWindow));
             _ = CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand, MaximizeRestoreWindow, CanResizeWindow));
             _ = CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand, MaximizeRestoreWindow, CanResizeWindow));
             _ = CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand, MinimizeWindow, CanMinimizeWindow));
-
-            StateChanged += CustomWindow_StateChanged;
-            Loaded += CustomWindow_Loaded;
-            WindowStyle = WindowStyle.None;
-            AllowsTransparency = true;
         }
 
         private void CustomWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            OnKioskModeChanged(this, new(KioskModeProperty, KioskMode, KioskMode));
+            /// <remarks> 
+            /// Do not change the order of lines of code below. 
+            /// OnKioskChanged() affects the value of the TitleBarHeight property.
+            /// </remarks>
+            OriginalTitleBarHeight = TitleBarHeight;
             OnTitleBarHeightChanged(this, new(TitleBarHeightProperty, TitleBarHeight, TitleBarHeight));
-
-            // if CustomDialog property has not been set in code or xaml, it will be set by GetDefaultCustomDialog().
-            // you can comment the next line if you don't want this behavior.
+            OnKioskModeChanged(this, new(KioskModeProperty, KioskMode, KioskMode));
             CustomDialog ??= GetDefaultCustomDialog();
 
             StackPanel GetDefaultCustomDialog()
@@ -71,7 +72,7 @@ namespace Wpf.Net6.Kit.Controls
                            "To display it just set the ShowCustomDialog property to True. " +
                            "If no CustomDialog is set, this message will be showed.",
                     FontSize = 14,
-                    Margin = new Thickness(20),
+                    Margin = new Thickness(50,20, 50, 20),
                     Foreground = Brushes.Silver,
                     TextWrapping = TextWrapping.Wrap,
                     TextTrimming = TextTrimming.WordEllipsis,
@@ -96,24 +97,22 @@ namespace Wpf.Net6.Kit.Controls
             }
         }
 
-        /// <summary>
-        /// Sets CustomDialog visibility to Visibility.Collapsed
-        /// </summary>
-        /// <remarks>This event handler is only used thru GetDefaultCustomDialog() function.</remarks>
+        /// <summary> Sets CustomDialog visibility to Visibility.Collapsed </summary>
+        /// <remarks> This event handler is only used thru GetDefaultCustomDialog() function.</remarks>
         private void CustomDialogEnterButton_Click(object sender, RoutedEventArgs e) => ShowCustomDialog = false;
 
-        /// <summary=> Shadows the WindowStyle property to prevent it from being changed from WindowStyle.None .
-        /// <remarks=> Any attempt to modify this property will launch an exception:
-        /// <exception=> cref="Error MC3080  The property 'CustomWindow.WindowStyle' cannot be set because it does not have an accessible set accessor."
+        /// <summary> Shadows the WindowStyle property to prevent it from being changed from WindowStyle.None . </summary>
+        /// <remarks> Any attempt to modify this property will launch an exception: </remarks>
+        /// <exception> cref="Error MC3080  The property 'CustomWindow.WindowStyle' cannot be set because it does not have an accessible set accessor." </exception>
         public new WindowStyle WindowStyle
         {
             get => (WindowStyle)GetValue(WindowStyleProperty);
             private set => SetValue(WindowStyleProperty, value);
         }
 
-        /// <summary=> Shadows the AllowsTransparency property to prevent it from being changed from AllowTransparency = True.
-        /// <remarks=> Any attempt to modify this property will launch an exception:
-        /// <exception=> cref="Error MC3080  The property 'CustomWindow.AllowsTransparency' cannot be set because it does not have an accessible set accessor."
+        /// <summary> Shadows the AllowsTransparency property to prevent it from being changed from AllowTransparency = True. </summary>
+        /// <remarks> Any attempt to modify this property will launch an exception: </remarks>
+        /// <exception> cref="Error MC3080  The property 'CustomWindow.AllowsTransparency' cannot be set because it does not have an accessible set accessor." </exception>
         public new bool AllowsTransparency
         {
             get => (bool)GetValue(AllowsTransparencyProperty);
@@ -135,24 +134,30 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new FrameworkPropertyMetadata(false,
                     propertyChangedCallback: OnKioskModeChanged));
 
-        private static double OriginalTitleBarHeight = 42.0;
+        private double OriginalTitleBarHeight = 42.0;
 
         private static void OnKioskModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
+            
             CustomWindow window = (CustomWindow)d;
+            if (window.IsLoaded == false)
+            {
+                return;
+            }
+
             bool value = (bool)e.NewValue;
             if (value)
             {
-                OriginalTitleBarHeight = window.TitleBarHeight;
-                window.MinTitleBarHeight = 0.0;
-                window.TitleBarHeight = 0.0;
+                window.WindowState = WindowState.Normal;
                 window.WindowState = WindowState.Maximized;
+                window.MinTitleBarHeight = 0.0;
+                window.OriginalTitleBarHeight = window.TitleBarHeight;
+                window.TitleBarHeight = 0.0;
             }
             else
             {
                 window.MinTitleBarHeight = 36.0;
-                window.TitleBarHeight = OriginalTitleBarHeight;
-                window.WindowState = WindowState.Maximized;
+                window.TitleBarHeight = window.OriginalTitleBarHeight;
             }
         }
 
@@ -170,33 +175,6 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(CustomWindow),
                 typeMetadata: new PropertyMetadata(
                     defaultValue: new KioskExitKeyGesture(Key.End, new ModifierKeys[] { ModifierKeys.Shift, ModifierKeys.Alt })));
-
-        public DataTemplate IconTemplate
-        {
-            get => (DataTemplate)GetValue(IconTemplateProperty);
-            set => SetValue(IconTemplateProperty, value);
-        }
-        public static readonly DependencyProperty IconTemplateProperty =
-            DependencyProperty.Register(
-                name: nameof(IconTemplate),
-                propertyType: typeof(DataTemplate),
-                ownerType: typeof(CustomWindow),
-                typeMetadata: new PropertyMetadata(
-                    defaultValue: null));
-
-        [Category(CustomWindowCategory)]
-        public FrameworkElement IconArea
-        {
-            get => (FrameworkElement)GetValue(IconAreaProperty);
-            set => SetValue(IconAreaProperty, value);
-        }
-        public static readonly DependencyProperty IconAreaProperty =
-            DependencyProperty.Register(
-                name: nameof(IconArea),
-                propertyType: typeof(FrameworkElement),
-                ownerType: typeof(CustomWindow),
-                typeMetadata: new PropertyMetadata(
-                    defaultValue: null));
 
         [Category(CustomWindowCategory)]
         public double MinTitleBarHeight
@@ -258,8 +236,25 @@ namespace Wpf.Net6.Kit.Controls
             });
         }
 
+        
+
         [Category(CustomWindowCategory)]
-        [Description("Gets or sets the FrameworkElement located in the left part of the title bar, just after the window icon.")]
+        [Description("Gets or sets the FrameworkElement located to the left of the title bar.")]
+        public FrameworkElement IconArea
+        {
+            get => (FrameworkElement)GetValue(IconAreaProperty);
+            set => SetValue(IconAreaProperty, value);
+        }
+        public static readonly DependencyProperty IconAreaProperty =
+            DependencyProperty.Register(
+                name: nameof(IconArea),
+                propertyType: typeof(FrameworkElement),
+                ownerType: typeof(CustomWindow),
+                typeMetadata: new PropertyMetadata(
+                    defaultValue: null));
+
+        [Category(CustomWindowCategory)]
+        [Description("Gets or sets the FrameworkElement located in the left part of the title bar, just after the IconArea.")]
         public FrameworkElement TitleBarLeftArea
         {
             get => (FrameworkElement)GetValue(TitleBarLeftAreaProperty);
@@ -289,8 +284,8 @@ namespace Wpf.Net6.Kit.Controls
                     defaultValue: null));
 
         [Category(CustomWindowCategory)]
-        [Description("Obtem ou define um pincel que descreve a cor do primeiro plano da barra de título da janela.")]
-        internal Brush TitleBarForeground
+        [Description("Gets or sets a brush that describes the foreground color of the window's title bar. Automatically calculated by OnTitleBarBackgroundChanged(d, e) when TitleBarForegroundIsAutomated is true.")]
+        public Brush TitleBarForeground
         {
             get => (Brush)GetValue(TitleBarForegroundProperty);
             set => SetValue(TitleBarForegroundProperty, value);
@@ -302,6 +297,20 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(CustomWindow),
                 typeMetadata: new PropertyMetadata(
                     defaultValue: Brushes.Black));
+
+        [Category(CustomWindowCategory)]
+        [Description("Gets or sets a Boolean value representing whether or not the title bar foreground will automatically adapt to a new background.")]
+        public bool TitleBarForegroundIsAutomated
+        {
+            get => (bool)GetValue(TitleBarForegroundIsAutomatedProperty);
+            set => SetValue(TitleBarForegroundIsAutomatedProperty, value);
+        }
+        public static readonly DependencyProperty TitleBarForegroundIsAutomatedProperty =
+            DependencyProperty.Register(
+                name: nameof(TitleBarForegroundIsAutomated),
+                propertyType: typeof(bool),
+                ownerType: typeof(CustomWindow),
+                typeMetadata: new PropertyMetadata(true));
 
         [Category(CustomWindowCategory)]
         [Description("Gets or sets the brush that describes the background of the window's title bar.")]
@@ -325,11 +334,11 @@ namespace Wpf.Net6.Kit.Controls
             Brush? newValue = (Brush)e.NewValue;
             BackgroundToForegroundConverter? converter = BackgroundToForegroundConverter.Instance;
             Brush? newIdealForeground = converter.Convert(newValue, typeof(Brush), new object(), CultureInfo.CurrentCulture) as Brush;
-            win.TitleBarForeground = newIdealForeground ?? SystemColors.HotTrackBrush;
+            win.TitleBarForeground = win.TitleBarForegroundIsAutomated ? newIdealForeground ?? SystemColors.HotTrackBrush : win.Foreground;
         }
 
         [Category(CustomWindowCategory)]
-        [Description("Gets or sets the DataTemplate for the Title property.")]
+        [Description("Gets or sets the DataTemplate of the Title property.")]
         public DataTemplate TitleTemplate
         {
             get => (DataTemplate)GetValue(TitleTemplateProperty);
@@ -344,7 +353,7 @@ namespace Wpf.Net6.Kit.Controls
                     defaultValue: null));
 
         [Category(CustomWindowCategory)]
-        [Description("Obtem ou define um pincel que representa o plano de fundo da camada que cobre a janela.")]
+        [Description("Gets or sets a brush that represents the background of the layer covering the window.")]
         public Brush OverlayBackground
         {
             get => (Brush)GetValue(OverlayBackgroundProperty);
@@ -359,7 +368,7 @@ namespace Wpf.Net6.Kit.Controls
                     defaultValue: Brushes.Gray));
 
         [Category(CustomWindowCategory)]
-        [Description("Obtem ou define a visibilidade da camada que cobre a janela.")]
+        [Description("Gets or sets the visibility of the layer that covers the window.")]
         public bool ShowCustomDialog
         {
             get => (bool)GetValue(ShowCustomDialogProperty);
@@ -374,6 +383,7 @@ namespace Wpf.Net6.Kit.Controls
                     defaultValue: false));
 
         [Category(CustomWindowCategory)]
+        [Description("Gets or sets a FrameworkElement that represents an interactive modal control that will only be visible if the ShowCustomDialog property is true.")]
         public FrameworkElement CustomDialog
         {
             get => (FrameworkElement)GetValue(CustomDialogProperty);
@@ -388,6 +398,7 @@ namespace Wpf.Net6.Kit.Controls
                     defaultValue: null));
 
         [Category(CustomWindowCategory)]
+        [Description("Gets or sets a brush representing the background of the CustomDialog element.")]
         public Brush CustomDialogBackground
         {
             get => (Brush)GetValue(CustomDialogBackgroundProperty);
@@ -513,7 +524,7 @@ namespace Wpf.Net6.Kit.Controls
                          k.ModifierKeys[1] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[1]) &&
                          k.ModifierKeys[2] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[2]),
 
-                    /// Unselect the 3 lines below if you need to alert that only 3 first items will be processed.
+                    /// <summary> Unselect the 3 lines below if you need to alert that only 3 first items will be processed. </summary> 
                     //> 3 => throw new ArrayExceedsMaximumLengthException(
                     //       arrayName: "KioskExitKeyGesture.ModifierKeys[ ]",
                     //       message: $"There are {k.ModifierKeys.Length} items in KioskModeExitKeyGesture.ModifierKeys[ ] array. It can hold only 3 items."),
@@ -560,10 +571,10 @@ namespace Wpf.Net6.Kit.Controls
         [Serializable]
         private class ArrayExceedsMaximumLengthException : Exception
         {
-            private string? arrayName = string.Empty;
+            public string? ArrayName { get; private set; } = string.Empty;
             public ArrayExceedsMaximumLengthException(string? arrayName, string? message) : base(message)
             {
-                this.arrayName = arrayName;
+                ArrayName = arrayName;
             }
             protected ArrayExceedsMaximumLengthException(SerializationInfo info, StreamingContext context) : base(info, context) { }
         }

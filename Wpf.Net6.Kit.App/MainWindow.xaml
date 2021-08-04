@@ -5,13 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:Wpf.Net6.Kit.Controls;assembly=Wpf.Net6.Kit"
         mc:Ignorable="d"
+        x:Name="customWindow"
         Title="Main Window" 
+        TitleBarBackground="Orange"
         Height="450" 
         Width="800" 
-        CustomDialogBackground="#FF921793" ShowCustomDialog="True" OverlayBackground="#FF1E9197" TitleBarHeight="52">
+        CustomDialogBackground="#FF921793" 
+        ShowCustomDialog="True" 
+        OverlayBackground="#FF1E9197" 
+        TitleBarHeight="52"
+        Icon="/Death Star.png"
+        KioskMode="True">
+    <controls:CustomWindow.TitleBarRightArea>
+        <Button
+            FontFamily="Segoe MDL2 Assets"
+            Content=""
+            FontSize="16"
+            Height="40"
+            Width="46"
+            Margin="0,0,10,0"
+            Background="Transparent"
+            Foreground="{Binding ElementName=customWindow, Path=TitleBarForeground}"
+            BorderThickness="0"
+            WindowChrome.IsHitTestVisibleInChrome="True"/>
+    </controls:CustomWindow.TitleBarRightArea>
     <controls:CustomWindow.IconArea>
-        <Image Source="/Death Star - 2nd (2015_10_12 18_49_50 UTC).png" Margin="5"/>
+        <Image Source="{Binding ElementName=customWindow, Path=Icon}" Margin="5"/>
     </controls:CustomWindow.IconArea>
-    <Grid>
-    </Grid>
+    <Border >
+        <Grid></Grid>
+    </Border>
 </controls:CustomWindow>
