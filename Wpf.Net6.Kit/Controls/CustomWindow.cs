@@ -13,7 +13,7 @@ using Wpf.Net6.Kit.Controls.Shared;
 namespace Wpf.Net6.Kit.Controls
 {
     /// <summary>
-    /// 
+    /// CustomWindow class.
     /// </summary>
     [TemplatePart(Name = PART_Icon, Type = typeof(ContentControl))]
     [TemplatePart(Name = PART_LeftArea, Type = typeof(ContentControl))]
