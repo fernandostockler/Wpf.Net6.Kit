@@ -45,7 +45,7 @@ KioskModeExitKeyGesture | Gets or sets a key combination of type KioskExitKeyGes
 
 ## Conteúdo modal
 Para exibir um conteúdo, que pode ser qualquer classe derivada de FrameworkElement, encobrindo a janela com uma camada personalizável impossibilitando qualquer interação com a aplicação principal enquanto estiver no modo modal. Somente o conteúdo modal estará disponível para o usuário até que ele saia.
-     
+
 ### Propriedades relacionadas:
 
 Propriedade | Descrição
