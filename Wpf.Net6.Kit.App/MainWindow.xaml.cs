@@ -25,5 +25,15 @@ namespace Wpf.Net6.Kit.App
         {
             InitializeComponent();
         }
+
+        private void TryKioskModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            KioskMode = true;
+        }
+
+        private void TryCustomDialogButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowCustomDialog = !ShowCustomDialog;
+        }
     }
 }
