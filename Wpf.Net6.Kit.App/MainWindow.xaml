@@ -55,7 +55,8 @@
             <TextBlock
                 Text="Change the title bar height : "
                 VerticalAlignment="Center"
-                Margin="10,0,0,0" />
+                Margin="10,0,0,0"
+                Foreground="#FFD7D7D7" />
             <Slider
                 Width="200"
                 HorizontalAlignment="Stretch"
