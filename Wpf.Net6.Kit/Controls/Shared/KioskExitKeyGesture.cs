@@ -10,7 +10,6 @@ namespace Wpf.Net6.Kit.Controls.Shared
     public class KioskExitKeyGesture
     {
         public ModifierKeys[] ModifierKeys { get; private set; } = Array.Empty<ModifierKeys>();
-
         public Key Key { get; private set; } = Key.None;
 
         public KioskExitKeyGesture() { }
@@ -20,7 +19,7 @@ namespace Wpf.Net6.Kit.Controls.Shared
             Key = key;
             ModifierKeys = modifierKeys;
         }
-        
+
         public override string ToString()
         {
             StringBuilder sb = new();

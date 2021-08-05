@@ -154,8 +154,8 @@
                             x:Name="ClientAreaRow" />
                     </Grid.RowDefinitions>
 
-                    <Border 
-                        BorderBrush="{TemplateBinding TitleBarBorderBrush}" 
+                    <Border
+                        BorderBrush="{TemplateBinding TitleBarBorderBrush}"
                         BorderThickness="{TemplateBinding TitleBarBorderThickness}">
                         <Grid
                             Background="{TemplateBinding TitleBarBackground}">
@@ -254,6 +254,7 @@
                             </Grid>
                         </Grid>
                     </Border>
+
                     <Grid
                         x:Name="ContentGrid"
                         Grid.Row="1"
@@ -273,6 +274,7 @@
                         Visibility="Collapsed" />
 
                     <Grid
+                        x:Name="CustomDialogContainerGrid"
                         Grid.RowSpan="2">
                         <Grid.RowDefinitions>
                             <RowDefinition />

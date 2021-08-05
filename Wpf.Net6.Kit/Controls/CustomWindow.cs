@@ -12,6 +12,9 @@ using Wpf.Net6.Kit.Controls.Shared;
 
 namespace Wpf.Net6.Kit.Controls
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [TemplatePart(Name = PART_Icon, Type = typeof(ContentControl))]
     [TemplatePart(Name = PART_LeftArea, Type = typeof(ContentControl))]
     [TemplatePart(Name = PART_Title, Type = typeof(ContentControl))]
@@ -40,8 +43,8 @@ namespace Wpf.Net6.Kit.Controls
 
         private void CustomWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            /// <remarks> 
-            /// Do not change the order of lines of code below. 
+            /// <remarks>
+            /// Do not change the order of lines of code below.
             /// OnKioskChanged() affects the value of the TitleBarHeight property.
             /// </remarks>
             OriginalTitleBarHeight = TitleBarHeight;
@@ -235,8 +238,6 @@ namespace Wpf.Net6.Kit.Controls
                 ResizeBorderThickness = new Thickness(ResizeBorderThicknessDefaultValue)
             });
         }
-
-
 
         [Category(CustomWindowCategory)]
         [Description("Gets or sets the FrameworkElement located to the left of the title bar.")]
@@ -441,27 +442,33 @@ namespace Wpf.Net6.Kit.Controls
                     defaultValue: Brushes.DarkBlue));
 
         private static readonly Thickness NormalThickness = new(0);
-        private static double WindowsTaskbarHeight => SystemParameters.PrimaryScreenHeight - SystemParameters.FullPrimaryScreenHeight - SystemParameters.WindowCaptionHeight;
-        private static double WindowsTaskbarWidth => SystemParameters.PrimaryScreenWidth - SystemParameters.FullPrimaryScreenWidth;
+
+        private static double WindowsTaskbarHeight
+            => SystemParameters.PrimaryScreenHeight
+            - SystemParameters.FullPrimaryScreenHeight
+            - SystemParameters.WindowCaptionHeight;
+
+        private static double WindowsTaskbarWidth
+            => SystemParameters.PrimaryScreenWidth
+            - SystemParameters.FullPrimaryScreenWidth;
 
         private void CustomWindow_StateChanged(object? sender, EventArgs e)
         {
             bool WindowStateIsNormal = WindowState == WindowState.Normal;
             MaximizeRestoreButton.Content = WindowStateIsNormal ? RestoreGlyph : MaximizeGlyph;
             MaximizeRestoreButton.ToolTip = WindowStateIsNormal ? MaximizeToolTip : RestoreToolTip;
-            // Fixes the issue that occurs when the window is maximized
+
+            ///<summary> Fixes the issue that occurs when the window is maximized </summary>
             Margin = WindowState == WindowState.Maximized ? GetMaximazedThickness() : NormalThickness;
 
             Thickness GetMaximazedThickness()
             {
                 Thickness resizeBorderThickness = WindowChrome.GetWindowChrome(this).ResizeBorderThickness;
-
                 Thickness thickness = new(
                     left: resizeBorderThickness.Left + BorderThickness.Left,
-                     top: resizeBorderThickness.Top + BorderThickness.Top,
-                   right: resizeBorderThickness.Right + BorderThickness.Right,
-                  bottom: resizeBorderThickness.Bottom + BorderThickness.Bottom);
-
+                    top: resizeBorderThickness.Top + BorderThickness.Top,
+                    right: resizeBorderThickness.Right + BorderThickness.Right,
+                    bottom: resizeBorderThickness.Bottom + BorderThickness.Bottom);
                 switch (GetTaskbarPosition())
                 {
                     case TaskbarPosition.Top:
@@ -552,7 +559,7 @@ namespace Wpf.Net6.Kit.Controls
                          k.ModifierKeys[1] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[1]) &&
                          k.ModifierKeys[2] == (e.KeyboardDevice.Modifiers & k.ModifierKeys[2]),
 
-                    /// <summary> Unselect the 3 lines below if you need to alert that only 3 first items will be processed. </summary> 
+                    /// <summary> Unselect the 3 lines below if you need to alert that only 3 first items will be processed. </summary>
                     //> 3 => throw new ArrayExceedsMaximumLengthException(
                     //       arrayName: "KioskExitKeyGesture.ModifierKeys[ ]",
                     //       message: $"There are {k.ModifierKeys.Length} items in KioskModeExitKeyGesture.ModifierKeys[ ] array. It can hold only 3 items."),
