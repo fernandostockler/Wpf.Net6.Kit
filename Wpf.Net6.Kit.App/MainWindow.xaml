@@ -8,27 +8,48 @@
     mc:Ignorable="d"
     x:Name="customWindow"
     Title="CustomWindow"
-    TitleBarBorderBrush="WhiteSmoke"
+    TitleBarBorderBrush="Gray"
     TitleBarBorderThickness="0,0,0,1"
-    TitleBarBackground="DarkSlateBlue"
+    TitleBarBackground="White"
     Height="450"
     Width="800"
-    ShowCustomDialog="False"
-    TitleBarHeight="42"
+    ShowCustomDialog="True"
+    TitleBarHeight="52"
     Icon="/Death Star.png"
     KioskMode="False"
-    CustomDialogBackground="#FF0238B9">
+    CustomDialogBackground="#FF16169A"
+    OverlayBackground="#FFD43D1B">
+    <controls:CustomWindow.TitleBarLeftArea>
+        <Grid
+            Width="200"
+            Background="#FF2C5DB0">
+            <TextBlock
+                Text="TitleBarLeftArea" 
+                Foreground="White"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+        </Grid>
+    </controls:CustomWindow.TitleBarLeftArea>
     <controls:CustomWindow.IconArea>
         <Image
             Source="{Binding ElementName=customWindow, Path=Icon}"
             Margin="5" />
     </controls:CustomWindow.IconArea>
     <controls:CustomWindow.TitleBarRightArea>
-        <Button
+        <Grid
+            Width="200"
+            Background="#FF2C5DB0">
+                <TextBlock
+                    Foreground="White"
+                    Text="TitleBarLeftArea"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center" />
+        </Grid>
+            <!--<Button
             VerticalAlignment="Top"
             Height="40"
             Margin="0,0,10,0"
-            Background="Transparent"
+            Background="#FF2C5DB0"
             Foreground="{Binding ElementName=customWindow, Path=TitleBarForeground}"
             BorderThickness="0"
             WindowChrome.IsHitTestVisibleInChrome="True">
@@ -45,10 +66,10 @@
                     FontSize="12"
                     Margin="5,0,0,0" />
             </StackPanel>
-        </Button>
+        </Button>-->
     </controls:CustomWindow.TitleBarRightArea>
 
-    <Border>
+    <Border Visibility="Collapsed">
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"
             Margin="0,0,0,30"
             Background="#FF5C5C5C">
@@ -84,7 +105,7 @@
             </Button>
             <Button
                 x:Name="TryCustomDialogButton"
-                Padding="10,0" 
+                Padding="10,0"
                 Click="TryCustomDialogButton_Click"
                 Margin="20,0,0,0">
                 <StackPanel>

@@ -10,4 +10,12 @@
     <PackageTags>wpf;custom-window;mvvm;wpf-control;</PackageTags>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
+  </ItemGroup>
+
 </Project>
