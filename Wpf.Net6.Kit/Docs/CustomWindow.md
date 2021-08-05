@@ -16,7 +16,6 @@ TitleBarRightArea | Pode ser qualquer classe que derive de FrameworkElement. | A
 
 ><br/>Nota: Para que os controles definidos para essas propriedades possam ser utilizados deve-se acrescentar o atributo WindowChrome.IsHitTestVisibleInChrome="True".<br/><br/>
 
-<br/>
 
 ### Outras propriedades que afetam a área não-cliente da janela:
 
