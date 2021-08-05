@@ -72,7 +72,7 @@ namespace Wpf.Net6.Kit.Controls
                            "To display it just set the ShowCustomDialog property to True. " +
                            "If no CustomDialog is set, this message will be showed.",
                     FontSize = 14,
-                    Margin = new Thickness(50,20, 50, 20),
+                    Margin = new Thickness(50, 20, 50, 20),
                     Foreground = Brushes.Silver,
                     TextWrapping = TextWrapping.Wrap,
                     TextTrimming = TextTrimming.WordEllipsis,
@@ -138,7 +138,7 @@ namespace Wpf.Net6.Kit.Controls
 
         private static void OnKioskModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            
+
             CustomWindow window = (CustomWindow)d;
             if (window.IsLoaded == false)
             {
@@ -236,7 +236,7 @@ namespace Wpf.Net6.Kit.Controls
             });
         }
 
-        
+
 
         [Category(CustomWindowCategory)]
         [Description("Gets or sets the FrameworkElement located to the left of the title bar.")]
@@ -336,6 +336,34 @@ namespace Wpf.Net6.Kit.Controls
             Brush? newIdealForeground = converter.Convert(newValue, typeof(Brush), new object(), CultureInfo.CurrentCulture) as Brush;
             win.TitleBarForeground = win.TitleBarForegroundIsAutomated ? newIdealForeground ?? SystemColors.HotTrackBrush : win.Foreground;
         }
+
+        [Category(CustomWindowCategory)]
+        [Description("Gets or sets the thickness of the border of the window's title bar.")]
+        public Thickness TitleBarBorderThickness
+        {
+            get => (Thickness)GetValue(TitleBarBorderThicknessProperty);
+            set => SetValue(TitleBarBorderThicknessProperty, value);
+        }
+        public static readonly DependencyProperty TitleBarBorderThicknessProperty =
+            DependencyProperty.Register(
+                name: nameof(TitleBarBorderThickness),
+                propertyType: typeof(Thickness),
+                ownerType: typeof(CustomWindow),
+                typeMetadata: new PropertyMetadata(new Thickness(0, 0, 0, 1)));
+
+        [Category(CustomWindowCategory)]
+        [Description("Gets or sets the brush that describes the border of the window's title bar.")]
+        public Brush TitleBarBorderBrush
+        {
+            get => (Brush)GetValue(TitleBarBorderBrushProperty);
+            set => SetValue(TitleBarBorderBrushProperty, value);
+        }
+        public static readonly DependencyProperty TitleBarBorderBrushProperty =
+            DependencyProperty.Register(
+                name: nameof(TitleBarBorderBrush),
+                propertyType: typeof(Brush),
+                ownerType: typeof(CustomWindow),
+                typeMetadata: new PropertyMetadata(Brushes.Black));
 
         [Category(CustomWindowCategory)]
         [Description("Gets or sets the DataTemplate of the Title property.")]
