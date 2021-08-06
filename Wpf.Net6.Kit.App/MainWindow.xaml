@@ -7,29 +7,24 @@
     xmlns:controls="clr-namespace:Wpf.Net6.Kit.Controls;assembly=Wpf.Net6.Kit"
     mc:Ignorable="d"
     x:Name="customWindow"
+    Background="DarkGray"
     Title="CustomWindow"
     TitleBarBorderBrush="Gray"
     TitleBarBorderThickness="0,0,0,1"
-    TitleBarBackground="White"
+    TitleBarBackground="#FF000D26"
     Height="450"
     Width="800"
-    ShowCustomDialog="True"
+    ShowCustomDialog="False"
     TitleBarHeight="42"
     Icon="/Death Star.png"
     KioskMode="False"
     CustomDialogBackground="#FF002F8B"
     OverlayBackground="#FFD14628">
-    <!--<controls:CustomWindow.TitleBarLeftArea>
-        <Grid
-            Width="200"
-            Background="#FF2C5DB0">
-            <TextBlock
-                Text="TitleBarLeftArea"
-                Foreground="White"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center" />
+    <controls:CustomWindow.TitleBarLeftArea>
+        <Grid>
+            <DatePicker  VerticalAlignment="Center" Margin="10,0,10,0" WindowChrome.IsHitTestVisibleInChrome="True"/>
         </Grid>
-    </controls:CustomWindow.TitleBarLeftArea>-->
+    </controls:CustomWindow.TitleBarLeftArea>
     <controls:CustomWindow.IconArea>
         <Image
             Source="{Binding ElementName=customWindow, Path=Icon}"
