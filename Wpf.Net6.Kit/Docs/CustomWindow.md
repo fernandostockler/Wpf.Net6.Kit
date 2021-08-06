@@ -2,10 +2,10 @@
  É uma janela que permite a personalização da área não-cliente, possuí um modo kiosk e tem um mecanismo para exibição de conteúdo modal. A seguir as principais funcionalidades da classe CustomWindow:<br/><br/>
 
 ## Área não-cliente personalizável 
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Mid_White.png?raw=true)
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Mid_White_Left_Right_Blue.png?raw=true)
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Mid_Blue_Gray_Left_Right.png?raw=true)
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_sample1_xaml.png?raw=true)
+![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_White.png?raw=true)
+![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_White_Left_Right_Blue.png?raw=true)
+![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_Blue_Gray_Left_Right.png?raw=true)
+![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_sample1_xaml.png?raw=true)
 
 
 Estão disponíveis 4 regiões na barra do título que são personalizáveis através das seguintes propriedades:
@@ -32,6 +32,7 @@ TitleBarForegroundIsAutomated | Gets or sets a Boolean value representing whethe
 TitleBarBackground | Gets or sets the brush that describes the background of the window's title bar.
 TitleBarBorderThickness | Gets or sets the thickness of the border of the window's title bar.
 TitleBarBorderBrush | Gets or sets the brush that describes the border of the window's title bar.
+
 <br/>
 
 ## Modo Kiosk
@@ -57,5 +58,5 @@ OverlayBackground | Gets or sets a brush that represents the background of the l
 ShowCustomDialog | Gets or sets the visibility of the layer that covers the window.
 CustomDialog | Gets or sets a FrameworkElement that represents an interactive modal control that will only be visible if the ShowCustomDialog property is true.
 
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Small_White_Dialog_Green.png?raw=true)
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Mid_White_Dialog_Blue_Red.png?raw=true)
+![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Small_White_Dialog_Green.png?raw=true)
+![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_White_Dialog_Blue_Red.png?raw=true)

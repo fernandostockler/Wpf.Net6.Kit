@@ -20,12 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Docs\Assets\CustomWindow_Mid_Blue_Gray_Left_Right.png" />
-    <Resource Include="Docs\Assets\CustomWindow_Mid_White.png" />
-    <Resource Include="Docs\Assets\CustomWindow_Mid_White_Dialog_Blue_Red.png" />
-    <Resource Include="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
-    <Resource Include="Docs\Assets\CustomWindow_sample1_xaml.png" />
-    <Resource Include="Docs\Assets\CustomWindow_Small_White_Dialog_Green.png" />
+    <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Mid_Blue_Gray_Left_Right.png" />
+    <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Mid_White.png" />
+    <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Mid_White_Dialog_Blue_Red.png" />
+    <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Mid_White_Left_Right_Blue.png" />
+    <Resource Include="Docs\Assets\CustomWindow\CustomWindow_sample1_xaml.png" />
+    <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Small_White_Dialog_Green.png" />
   </ItemGroup>
 
 </Project>
