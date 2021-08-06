@@ -13,11 +13,13 @@
   <ItemGroup>
     <None Remove="Docs\Assets\CustomWindow_Mid_White.png" />
     <None Remove="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
+    <None Remove="Docs\Assets\CustomWindow_Small_White_Dialog_Green.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Docs\Assets\CustomWindow_Mid_White.png" />
     <Resource Include="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
+    <Resource Include="Docs\Assets\CustomWindow_Small_White_Dialog_Green.png" />
   </ItemGroup>
 
 </Project>

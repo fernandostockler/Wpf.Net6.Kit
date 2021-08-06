@@ -14,29 +14,29 @@
     Height="450"
     Width="800"
     ShowCustomDialog="True"
-    TitleBarHeight="52"
+    TitleBarHeight="42"
     Icon="/Death Star.png"
     KioskMode="False"
-    CustomDialogBackground="#FF16169A"
-    OverlayBackground="#FFD43D1B">
-    <controls:CustomWindow.TitleBarLeftArea>
+    CustomDialogBackground="#FF008B6B"
+    OverlayBackground="#CC353535">
+    <!--<controls:CustomWindow.TitleBarLeftArea>
         <Grid
             Width="200"
             Background="#FF2C5DB0">
             <TextBlock
-                Text="TitleBarLeftArea" 
+                Text="TitleBarLeftArea"
                 Foreground="White"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" />
         </Grid>
-    </controls:CustomWindow.TitleBarLeftArea>
+    </controls:CustomWindow.TitleBarLeftArea>-->
     <controls:CustomWindow.IconArea>
         <Image
             Source="{Binding ElementName=customWindow, Path=Icon}"
             Margin="5" />
     </controls:CustomWindow.IconArea>
     <controls:CustomWindow.TitleBarRightArea>
-        <Grid
+        <!--<Grid
             Width="200"
             Background="#FF2C5DB0">
                 <TextBlock
@@ -44,12 +44,11 @@
                     Text="TitleBarRightArea"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center" />
-        </Grid>
-            <!--<Button
+        </Grid>-->
+            <Button
             VerticalAlignment="Top"
-            Height="40"
+            Height="40" Padding="10,0" Background="Transparent"
             Margin="0,0,10,0"
-            Background="#FF2C5DB0"
             Foreground="{Binding ElementName=customWindow, Path=TitleBarForeground}"
             BorderThickness="0"
             WindowChrome.IsHitTestVisibleInChrome="True">
@@ -66,7 +65,7 @@
                     FontSize="12"
                     Margin="5,0,0,0" />
             </StackPanel>
-        </Button>-->
+        </Button>
     </controls:CustomWindow.TitleBarRightArea>
 
     <Border Visibility="Collapsed">
