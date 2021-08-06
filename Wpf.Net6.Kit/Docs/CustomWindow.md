@@ -18,8 +18,7 @@ TitleBarRightArea | Pode ser qualquer classe que derive de FrameworkElement. | A
 
 
 ### Outras propriedades que afetam a área não-cliente da janela:
-
-
+ 
 
 Propriedade | Descrição
 ---- | ----
@@ -54,4 +53,4 @@ OverlayBackground | Gets or sets a brush that represents the background of the l
 ShowCustomDialog | Gets or sets the visibility of the layer that covers the window.
 CustomDialog | Gets or sets a FrameworkElement that represents an interactive modal control that will only be visible if the ShowCustomDialog property is true.
 
-![CustomWindow sample](/Docs/Assets/CustomWindow_Mid_White_Left_Right_Blue.png)
+![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Mid_White_Left_Right_Blue.png?raw=true)
