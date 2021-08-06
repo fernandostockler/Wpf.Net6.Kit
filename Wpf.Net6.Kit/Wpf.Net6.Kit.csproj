@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Docs\Assets\CustomWindow_Mid_Blue_Gray_Left_Right.png" />
     <None Remove="Docs\Assets\CustomWindow_Mid_White.png" />
     <None Remove="Docs\Assets\CustomWindow_Mid_White_Dialog_Blue_Red.png" />
     <None Remove="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
@@ -18,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Docs\Assets\CustomWindow_Mid_Blue_Gray_Left_Right.png" />
     <Resource Include="Docs\Assets\CustomWindow_Mid_White.png" />
     <Resource Include="Docs\Assets\CustomWindow_Mid_White_Dialog_Blue_Red.png" />
     <Resource Include="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
