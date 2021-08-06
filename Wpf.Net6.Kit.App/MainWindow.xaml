@@ -41,7 +41,7 @@
             Background="#FF2C5DB0">
                 <TextBlock
                     Foreground="White"
-                    Text="TitleBarLeftArea"
+                    Text="TitleBarRightArea"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center" />
         </Grid>
