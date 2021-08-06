@@ -21,94 +21,20 @@
     CustomDialogBackground="#FF002F8B"
     OverlayBackground="#FFD14628">
     <controls:CustomWindow.TitleBarLeftArea>
-        <Grid>
-            <DatePicker  VerticalAlignment="Center" Margin="10,0,10,0" WindowChrome.IsHitTestVisibleInChrome="True"/>
-        </Grid>
+        <DatePicker  VerticalAlignment="Center" Margin="10,0,10,0" WindowChrome.IsHitTestVisibleInChrome="True"/>
     </controls:CustomWindow.TitleBarLeftArea>
     <controls:CustomWindow.IconArea>
-        <Image
-            Source="{Binding ElementName=customWindow, Path=Icon}"
-            Margin="5" />
+        <Image Source="{Binding ElementName=customWindow, Path=Icon}" Margin="5" />
     </controls:CustomWindow.IconArea>
     <controls:CustomWindow.TitleBarRightArea>
-        <!--<Grid
-            Width="200"
-            Background="#FF2C5DB0">
-                <TextBlock
-                    Foreground="White"
-                    Text="TitleBarRightArea"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center" />
-        </Grid>-->
-            <Button
-            VerticalAlignment="Top"
-            Height="40" Padding="10,0" Background="Transparent"
-            Margin="0,0,10,0"
-            Foreground="{Binding ElementName=customWindow, Path=TitleBarForeground}"
-            BorderThickness="0"
-            WindowChrome.IsHitTestVisibleInChrome="True">
+            <Button VerticalAlignment="Top" Height="40" Padding="10,0" Background="Transparent" Margin="0,0,10,0"
+                Foreground="{Binding ElementName=customWindow, Path=TitleBarForeground}" BorderThickness="0"
+                WindowChrome.IsHitTestVisibleInChrome="True">
             <StackPanel
                 Orientation="Horizontal">
-                <TextBlock
-                    VerticalAlignment="Center"
-                    FontFamily="Segoe MDL2 Assets"
-                    Text=""
-                    FontSize="16" />
-                <TextBlock
-                    VerticalAlignment="Center"
-                    Text="Login"
-                    FontSize="12"
-                    Margin="5,0,0,0" />
+                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" FontSize="16"/>
+                <TextBlock Text="Login" VerticalAlignment="Center" FontSize="12" Margin="5,0,0,0" />
             </StackPanel>
         </Button>
     </controls:CustomWindow.TitleBarRightArea>
-
-    <Border Visibility="Collapsed">
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"
-            Margin="0,0,0,30"
-            Background="#FF5C5C5C">
-            <TextBlock
-                Text="Change the title bar height : "
-                VerticalAlignment="Center"
-                Margin="10,0,0,0"
-                Foreground="#FFD7D7D7" />
-            <Slider
-                Width="200"
-                HorizontalAlignment="Stretch"
-                Padding="15"
-                WindowChrome.IsHitTestVisibleInChrome="True"
-                Minimum="42"
-                Maximum="300"
-                LargeChange="1"
-                SmallChange="1"
-                TickFrequency="5"
-                TickPlacement="BottomRight"
-                Value="{Binding TitleBarHeight, ElementName=customWindow}"
-                IsSnapToTickEnabled="False"
-                Margin="10,10,10,10" />
-            <Button x:Name="TryKioskModeButton" Padding="10,0" Click="TryKioskModeButton_Click"
-                Margin="20,0,0,0">
-                <StackPanel>
-                    <TextBlock
-                        Text="Try Kiosk mode"
-                        TextAlignment="Center" />
-                    <TextBlock
-                        Text="To exit type Shift + Alt + End"
-                        TextAlignment="Center" />
-                </StackPanel>
-            </Button>
-            <Button
-                x:Name="TryCustomDialogButton"
-                Padding="10,0"
-                Click="TryCustomDialogButton_Click"
-                Margin="20,0,0,0">
-                <StackPanel>
-                    <TextBlock
-                        Text="Toggle CustomDialog"
-                        TextAlignment="Center" />
-                </StackPanel>
-            </Button>
-
-        </StackPanel>
-    </Border>
 </controls:CustomWindow>
