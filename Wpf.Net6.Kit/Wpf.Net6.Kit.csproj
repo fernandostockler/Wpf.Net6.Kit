@@ -11,10 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Docs\Assets\CustomWindow_Mid_White.png" />
     <None Remove="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Docs\Assets\CustomWindow_Mid_White.png" />
     <Resource Include="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
   </ItemGroup>
 
