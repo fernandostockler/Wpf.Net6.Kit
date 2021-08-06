@@ -4,7 +4,6 @@
 ## Área não-cliente personalizável 
 ![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Mid_White.png?raw=true)
 ![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Mid_White_Left_Right_Blue.png?raw=true)
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Small_White_Dialog_Green.png?raw=true)
 
 Estão disponíveis 4 regiões na barra do título que são personalizáveis através das seguintes propriedades:
 
@@ -56,3 +55,4 @@ OverlayBackground | Gets or sets a brush that represents the background of the l
 ShowCustomDialog | Gets or sets the visibility of the layer that covers the window.
 CustomDialog | Gets or sets a FrameworkElement that represents an interactive modal control that will only be visible if the ShowCustomDialog property is true.
 
+![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow_Small_White_Dialog_Green.png?raw=true)
