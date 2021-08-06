@@ -17,8 +17,8 @@
     TitleBarHeight="42"
     Icon="/Death Star.png"
     KioskMode="False"
-    CustomDialogBackground="#FF008B6B"
-    OverlayBackground="#CC353535">
+    CustomDialogBackground="#FF002F8B"
+    OverlayBackground="#FFD14628">
     <!--<controls:CustomWindow.TitleBarLeftArea>
         <Grid
             Width="200"
