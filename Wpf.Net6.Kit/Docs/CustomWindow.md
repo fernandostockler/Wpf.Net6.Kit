@@ -7,7 +7,6 @@
 ![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_Blue_Gray_Left_Right.png?raw=true)
 ![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_sample1_xaml.png?raw=true)
 
-
 Estão disponíveis 4 regiões na barra do título que são personalizáveis através das seguintes propriedades:
 
 Propriedades | Descrição | Local na barra de título
