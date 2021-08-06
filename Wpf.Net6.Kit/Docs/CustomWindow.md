@@ -23,7 +23,6 @@ TitleBarRightArea | Pode ser qualquer classe que derive de FrameworkElement. | A
 
 
 ### Outras propriedades que afetam a área não-cliente da janela:
- 
 
 Propriedade | Descrição
 ---- | ----
