@@ -3,6 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Wpf.Net6.Kit">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Wpf.Net6.Kit;component/Themes/CustomWindow.xaml"/>
+        <ResourceDictionary
+            Source="/Wpf.Net6.Kit;component/Themes/CustomWindow.xaml" />
+        <ResourceDictionary
+            Source="/Wpf.Net6.Kit;component/Themes/SideMenuItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
