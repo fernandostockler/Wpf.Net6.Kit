@@ -45,7 +45,7 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(defaultValue: new SolidColorBrush(Colors.YellowGreen)));
 
         [Category(SideMenuItemCategory)]
-        [Description("")]
+        [Description("Obtem ou define a largura do indicador de seleção.")]
         public double SelectionIndicatorWidth
         {
             get => (double)GetValue(SelectionIndicatorWidthProperty);
@@ -73,7 +73,7 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(defaultValue: new Thickness(0, 0, 5, 0)));
 
         [Category(SideMenuItemCategory)]
-        [Description("Obtem ou define a propriedade Symbol em PART_SymbolIcon. Só sera visível com a propriedade IconMode = IconMode.Symbol")]
+        [Description("Obtem ou define uma cadeia de caracteres que representa o código do símbolo exibido como o icone.")]
         public string Symbol
         {
             get => (string)GetValue(SymbolProperty);
@@ -87,7 +87,7 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(defaultValue: HomeSymbol));
 
         [Category(SideMenuItemCategory)]
-        [Description("")]
+        [Description("Obtem ou define o FontFamily utilizado pela propridade Symbol.")]
         public FontFamily SymbolFontFamily
         {
             get => (FontFamily)GetValue(SymbolFontFamilyProperty);
@@ -101,7 +101,7 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(defaultValue: new FontFamily(SegoeMDL2Assets)));
 
         [Category(SideMenuItemCategory)]
-        [Description("")]
+        [Description("Obtem ou define o pincel que representa a cor do icone.")]
         public Brush SymbolForeground
         {
             get => (Brush)GetValue(SymbolForegroundProperty);

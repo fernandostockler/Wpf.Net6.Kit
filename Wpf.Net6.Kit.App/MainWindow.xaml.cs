@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using Wpf.Net6.Kit.App.Views;
+﻿using Wpf.Net6.Kit.App.Views;
 using Wpf.Net6.Kit.Controls;
 
 namespace Wpf.Net6.Kit.App
@@ -18,8 +17,5 @@ namespace Wpf.Net6.Kit.App
             sideMenu.Pages.Add(nameof(UserControl1), new UserControl1());
             sideMenu.Pages.Add(nameof(UserControl2), new UserControl2());
         }
-
-        private void TryKioskModeButton_Click(object sender, RoutedEventArgs e) => KioskMode = true;
-        private void TryCustomDialogButton_Click(object sender, RoutedEventArgs e) => ShowCustomDialog = !ShowCustomDialog;
     }
 }
