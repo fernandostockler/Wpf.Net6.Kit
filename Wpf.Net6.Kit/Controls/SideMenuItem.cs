@@ -113,5 +113,19 @@ namespace Wpf.Net6.Kit.Controls
                 propertyType: typeof(Brush),
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new FrameworkPropertyMetadata(defaultValue: Brushes.Black));
+
+        [Category(SideMenuItemCategory)]
+        [Description("")]
+        public double SymbolFontSize
+        {
+            get => (double)GetValue(SymbolFontSizeProperty);
+            set => SetValue(SymbolFontSizeProperty, value);
+        }
+        public static readonly DependencyProperty SymbolFontSizeProperty =
+            DependencyProperty.Register(
+                name: nameof(SymbolFontSize),
+                propertyType: typeof(double),
+                ownerType: typeof(SideMenuItem),
+                typeMetadata: new PropertyMetadata(28.0));
     }
 }

@@ -62,5 +62,11 @@
                 Symbol="&#xE115;"
                 Content="  Configurações" SymbolForeground="Orange" />
         </ListBox>
+        <controls:SideMenu x:Name="sideMenu">
+            <controls:SideMenuItem Content="Page1" PageTypeName="Page1"/>
+            <controls:SideMenuItem Content="Page2" PageTypeName="Page2"/>
+            <controls:SideMenuItem Content="UserControl1" PageTypeName="UserControl1"/>
+            <controls:SideMenuItem Content="UserControl2" PageTypeName="UserControl2"/>
+        </controls:SideMenu>
     </Grid>
 </controls:CustomWindow>
