@@ -38,4 +38,26 @@
             </StackPanel>
         </Button>
     </controls:CustomWindow.TitleBarRightArea>
+    <Grid>
+        <ListBox>
+            <ListBox.Resources>
+                <Style
+                    TargetType="controls:SideMenuItem">
+                    <Setter
+                        Property="Height"
+                        Value="35" />
+                </Style>
+            </ListBox.Resources>
+            <controls:SideMenuItem />
+            <controls:SideMenuItem
+                Symbol="&#xE1C4;"
+                Content="  Mapas" />
+            <controls:SideMenuItem
+                Symbol="&#xE1C2;"
+                Content="  Editar" SymbolForeground="BlueViolet"/>
+            <controls:SideMenuItem
+                Symbol="&#xE115;"
+                Content="  Configurações" SymbolForeground="Orange" />
+        </ListBox>
+    </Grid>
 </controls:CustomWindow>

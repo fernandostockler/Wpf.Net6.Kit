@@ -62,10 +62,13 @@
             Value="0.5" />
         <Setter
             Property="FontSize"
-            Value="22" />
+            Value="14" />
         <Setter
             Property="FocusVisualStyle"
             Value="{StaticResource FocusVisual}" />
+        <Setter
+            Property="MinHeight"
+            Value="25" />
         <Setter
             Property="Template">
             <Setter.Value>
@@ -81,12 +84,14 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="{TemplateBinding SelectionIndicatorWidth}"/>
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <Rectangle
                                 x:Name="PART_Rectangle"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="{TemplateBinding SelectionIndicatorBrush}"
+                                Margin="{TemplateBinding SelectionIndicatorMargin}"
                                 Visibility="Hidden" />
                             <Grid
                                 Grid.Column="1"
@@ -110,7 +115,11 @@
                                         Geometry="{TemplateBinding Geometry}"
                                         Visibility="Collapsed" />
                                 </Grid>-->
-                                <TextBlock Text="{TemplateBinding }"/>
+                                <TextBlock
+                                    Text="{TemplateBinding Symbol}"
+                                    FontFamily="{TemplateBinding SymbolFontFamily}"
+                                    Foreground="{TemplateBinding SymbolForeground}"
+                                    VerticalAlignment="Center"/>
                                 <ContentPresenter
                                     Content="{TemplateBinding Content}"
                                     VerticalAlignment="Center"

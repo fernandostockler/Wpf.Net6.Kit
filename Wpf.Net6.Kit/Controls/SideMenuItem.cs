@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf.Net6.Kit.Controls.Shared;
 
 namespace Wpf.Net6.Kit.Controls
 {
@@ -51,36 +52,80 @@ namespace Wpf.Net6.Kit.Controls
                 propertyType: typeof(Brush),
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(
-                    defaultValue: new SolidColorBrush(Colors.GreenYellow)));
+                    defaultValue: new SolidColorBrush(Colors.Red)));
 
         [Category(SideMenuItemCategory)]
         [Description("")]
-
-        public double SelectionIndicatorWidth
+        public GridLength SelectionIndicatorWidth
         {
-            get => (double)GetValue(SelectionIndicatorWidthProperty);
+            get => (GridLength)GetValue(SelectionIndicatorWidthProperty);
             set => SetValue(SelectionIndicatorWidthProperty, value);
         }
         public static readonly DependencyProperty SelectionIndicatorWidthProperty =
             DependencyProperty.Register(
                 name: nameof(SelectionIndicatorWidth),
-                propertyType: typeof(double),
+                propertyType: typeof(GridLength),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(5.0));
+                typeMetadata: new PropertyMetadata(new GridLength(8.0)));
+
+        [Category(SideMenuItemCategory)]
+        [Description("")]
+        public Thickness SelectionIndicatorMargin
+        {
+            get => (Thickness)GetValue(SelectionIndicatorMarginProperty);
+            set => SetValue(SelectionIndicatorMarginProperty, value);
+        }
+        public static readonly DependencyProperty SelectionIndicatorMarginProperty =
+            DependencyProperty.Register(
+                name: nameof(SelectionIndicatorMargin),
+                propertyType: typeof(Thickness),
+                ownerType: typeof(SideMenuItem),
+                typeMetadata: new PropertyMetadata(
+                    defaultValue: new Thickness(0, 0, 5, 0)));
 
         [Category(SideMenuItemCategory)]
         [Description("Obtem ou define a propriedade Symbol em PART_SymbolIcon. Só sera visível com a propriedade IconMode = IconMode.Symbol")]
-        public Symbol Symbol
+        public string Symbol
         {
-            get => (Symbol)GetValue(SymbolProperty);
+            get => (string)GetValue(SymbolProperty);
             set => SetValue(SymbolProperty, value);
         }
         public static readonly DependencyProperty SymbolProperty =
             DependencyProperty.Register(
                 name: nameof(Symbol),
-                propertyType: typeof(Symbol),
+                propertyType: typeof(string),
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(
-                    defaultValue: Symbol.Home));
+                    defaultValue: "\uE10F"));
+
+        [Category(SideMenuItemCategory)]
+        [Description("")]
+        public FontFamily SymbolFontFamily
+        {
+            get => (FontFamily)GetValue(SymbolFontFamilyProperty);
+            set => SetValue(SymbolFontFamilyProperty, value);
+        }
+        public static readonly DependencyProperty SymbolFontFamilyProperty =
+            DependencyProperty.Register(
+                name: nameof(SymbolFontFamily),
+                propertyType: typeof(FontFamily),
+                ownerType: typeof(SideMenuItem),
+                typeMetadata: new PropertyMetadata(
+                    defaultValue: new FontFamily("Segoe MDL2 Assets")));
+
+        [Category(SideMenuItemCategory)]
+        [Description("")]
+        public Brush SymbolForeground
+        {
+            get => (Brush)GetValue(SymbolForegroundProperty);
+            set => SetValue(SymbolForegroundProperty, value);
+        }
+        public static readonly DependencyProperty SymbolForegroundProperty =
+            DependencyProperty.Register(
+                name: nameof(SymbolForeground),
+                propertyType: typeof(Brush),
+                ownerType: typeof(SideMenuItem),
+                typeMetadata: new FrameworkPropertyMetadata(
+                    defaultValue: null, FrameworkPropertyMetadataOptions.Inherits));
     }
 }
