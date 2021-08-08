@@ -8,6 +8,9 @@ namespace Wpf.Net6.Kit.Controls
     public class SideMenuItem : ListBoxItem
     {
         private const string SideMenuItemCategory = "SideMenuItem";
+        private const string SegoeMDL2Assets = "Segoe MDL2 Assets";
+        private const string HomeSymbol = "\uE10F";
+
         static SideMenuItem()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(SideMenuItem), new FrameworkPropertyMetadata(typeof(SideMenuItem)));
@@ -84,7 +87,7 @@ namespace Wpf.Net6.Kit.Controls
                 propertyType: typeof(string),
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(
-                    defaultValue: "\uE10F"));
+                    defaultValue: HomeSymbol));
 
         [Category(SideMenuItemCategory)]
         [Description("")]
@@ -99,7 +102,7 @@ namespace Wpf.Net6.Kit.Controls
                 propertyType: typeof(FontFamily),
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(
-                    defaultValue: new FontFamily("Segoe MDL2 Assets")));
+                    defaultValue: new FontFamily(SegoeMDL2Assets)));
 
         [Category(SideMenuItemCategory)]
         [Description("")]
