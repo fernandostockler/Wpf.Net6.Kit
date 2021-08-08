@@ -42,8 +42,7 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(SelectionIndicatorBrush),
                 propertyType: typeof(Brush),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(
-                    defaultValue: new SolidColorBrush(Colors.YellowGreen)));
+                typeMetadata: new PropertyMetadata(defaultValue: new SolidColorBrush(Colors.YellowGreen)));
 
         [Category(SideMenuItemCategory)]
         [Description("")]
@@ -71,8 +70,7 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(SelectionIndicatorMargin),
                 propertyType: typeof(Thickness),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(
-                    defaultValue: new Thickness(0, 0, 5, 0)));
+                typeMetadata: new PropertyMetadata(defaultValue: new Thickness(0, 0, 5, 0)));
 
         [Category(SideMenuItemCategory)]
         [Description("Obtem ou define a propriedade Symbol em PART_SymbolIcon. Só sera visível com a propriedade IconMode = IconMode.Symbol")]
@@ -86,8 +84,7 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(Symbol),
                 propertyType: typeof(string),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(
-                    defaultValue: HomeSymbol));
+                typeMetadata: new PropertyMetadata(defaultValue: HomeSymbol));
 
         [Category(SideMenuItemCategory)]
         [Description("")]
@@ -101,8 +98,7 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(SymbolFontFamily),
                 propertyType: typeof(FontFamily),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(
-                    defaultValue: new FontFamily(SegoeMDL2Assets)));
+                typeMetadata: new PropertyMetadata(defaultValue: new FontFamily(SegoeMDL2Assets)));
 
         [Category(SideMenuItemCategory)]
         [Description("")]
@@ -116,7 +112,6 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(SymbolForeground),
                 propertyType: typeof(Brush),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new FrameworkPropertyMetadata(
-                    defaultValue: Brushes.Black));
+                typeMetadata: new FrameworkPropertyMetadata(defaultValue: Brushes.Black));
     }
 }
