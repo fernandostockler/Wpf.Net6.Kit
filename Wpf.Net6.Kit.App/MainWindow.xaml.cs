@@ -40,6 +40,11 @@ namespace Wpf.Net6.Kit.App
         private void TryCustomDialogButton_Click(object sender, RoutedEventArgs e)
         {
             ShowCustomDialog = !ShowCustomDialog;
-        }        
+        }
+
+        private void sideMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

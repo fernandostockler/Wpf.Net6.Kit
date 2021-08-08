@@ -126,6 +126,21 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(SymbolFontSize),
                 propertyType: typeof(double),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(28.0));
+                typeMetadata: new PropertyMetadata(26.0));
+
+        [Category(SideMenuItemCategory)]
+        [Description("")]
+
+        public Thickness SymbolMargin
+        {
+            get => (Thickness)GetValue(SymbolMarginProperty);
+            set => SetValue(SymbolMarginProperty, value);
+        }
+        public static readonly DependencyProperty SymbolMarginProperty =
+            DependencyProperty.Register(
+                name: nameof(SymbolMargin),
+                propertyType: typeof(Thickness),
+                ownerType: typeof(SideMenuItem),
+                typeMetadata: new PropertyMetadata(new Thickness(0, 0, 12, 0)));
     }
 }

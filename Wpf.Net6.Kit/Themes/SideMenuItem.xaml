@@ -74,6 +74,7 @@
                                     FontFamily="{TemplateBinding SymbolFontFamily}"
                                     FontSize="{TemplateBinding SymbolFontSize}"
                                     Foreground="{TemplateBinding SymbolForeground}"
+                                    Margin="{TemplateBinding SymbolMargin}"
                                     VerticalAlignment="Center"/>
                                 <ContentPresenter
                                     Content="{TemplateBinding Content}"
