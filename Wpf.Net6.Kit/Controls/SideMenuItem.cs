@@ -52,21 +52,21 @@ namespace Wpf.Net6.Kit.Controls
                 propertyType: typeof(Brush),
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(
-                    defaultValue: new SolidColorBrush(Colors.Red)));
+                    defaultValue: new SolidColorBrush(Colors.YellowGreen)));
 
         [Category(SideMenuItemCategory)]
         [Description("")]
-        public GridLength SelectionIndicatorWidth
+        public double SelectionIndicatorWidth
         {
-            get => (GridLength)GetValue(SelectionIndicatorWidthProperty);
+            get => (double)GetValue(SelectionIndicatorWidthProperty);
             set => SetValue(SelectionIndicatorWidthProperty, value);
         }
         public static readonly DependencyProperty SelectionIndicatorWidthProperty =
             DependencyProperty.Register(
                 name: nameof(SelectionIndicatorWidth),
-                propertyType: typeof(GridLength),
+                propertyType: typeof(double),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(new GridLength(8.0)));
+                typeMetadata: new PropertyMetadata(5.0));
 
         [Category(SideMenuItemCategory)]
         [Description("")]
@@ -126,6 +126,6 @@ namespace Wpf.Net6.Kit.Controls
                 propertyType: typeof(Brush),
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new FrameworkPropertyMetadata(
-                    defaultValue: null, FrameworkPropertyMetadataOptions.Inherits));
+                    defaultValue: Brushes.Black));
     }
 }

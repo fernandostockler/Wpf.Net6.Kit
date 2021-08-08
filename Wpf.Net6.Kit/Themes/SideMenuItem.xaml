@@ -62,7 +62,7 @@
             Value="0.5" />
         <Setter
             Property="FontSize"
-            Value="14" />
+            Value="20" />
         <Setter
             Property="FocusVisualStyle"
             Value="{StaticResource FocusVisual}" />
@@ -83,10 +83,10 @@
                         SnapsToDevicePixels="true">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="{TemplateBinding SelectionIndicatorWidth}"/>
+                                <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Rectangle
+                            <Rectangle  Width="{TemplateBinding SelectionIndicatorWidth}"
                                 x:Name="PART_Rectangle"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"

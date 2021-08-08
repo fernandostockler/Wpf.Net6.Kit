@@ -39,7 +39,7 @@
         </Button>
     </controls:CustomWindow.TitleBarRightArea>
     <Grid>
-        <ListBox>
+        <ListBox BorderBrush="Black" BorderThickness="1" Margin="30">
             <ListBox.Resources>
                 <Style
                     TargetType="controls:SideMenuItem">
@@ -49,8 +49,8 @@
                 </Style>
             </ListBox.Resources>
             <controls:SideMenuItem />
-            <controls:SideMenuItem
-                Symbol="&#xE1C4;"
+            <controls:SideMenuItem FontSize="20"
+                Symbol="&#xE12B;"
                 Content="  Mapas" />
             <controls:SideMenuItem
                 Symbol="&#xE1C2;"
