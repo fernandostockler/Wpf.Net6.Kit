@@ -37,44 +37,18 @@
             </StackPanel>
         </Button>
     </controls:CustomWindow.TitleBarRightArea>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="117*"/>
-            <ColumnDefinition Width="43*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox BorderBrush="Black" BorderThickness="1" Margin="3,3,3,3" Grid.Column="1" >
-            <ListBox.Resources>
-                <Style
-                    TargetType="controls:SideMenuItem">
-                    <Setter
-                        Property="Height"
-                        Value="35" />
-                </Style>
-            </ListBox.Resources>
-            <controls:SideMenuItem Content="  Home" />
-            <controls:SideMenuItem FontSize="20"
-                Symbol="&#xE12B;"
-                Content="  Mapas" />
-            <controls:SideMenuItem
-                Symbol="&#xE1C2;"
-                Content="  Editar" SymbolForeground="BlueViolet"/>
-            <controls:SideMenuItem
-                Symbol="&#xE115;"
-                Content="  Configurações" SymbolForeground="Orange" />
-        </ListBox>
-        <controls:SideMenu x:Name="sideMenu" SelectionChanged="sideMenu_SelectionChanged">
-            <controls:SideMenu.Resources>
-                <Style TargetType="controls:SideMenuItem">
-                    <Setter Property="SymbolForeground" Value="DodgerBlue" />
-                    <Setter Property="SymbolFontSize" Value="26" />
-                    <Setter Property="SelectionIndicatorMargin" Value="0,0,10,0" />
-                    <Setter Property="Height" Value="48" />
-                </Style>
-            </controls:SideMenu.Resources>
-            <controls:SideMenuItem Content="Page1" PageTypeName="Page1"/>
-            <controls:SideMenuItem Content="Page2" PageTypeName="Page2" Symbol="&#xE136;" SymbolForeground="MediumSlateBlue"/>
-            <controls:SideMenuItem Content="UserControl1" PageTypeName="UserControl1" Symbol="&#xE163;" SymbolForeground="OrangeRed"/>
-            <controls:SideMenuItem Content="UserControl2" PageTypeName="UserControl2" Symbol="&#xE726;" SymbolForeground="Yellow"/>
-        </controls:SideMenu>
-    </Grid>
+    <controls:SideMenu x:Name="sideMenu">
+        <controls:SideMenu.Resources>
+            <Style TargetType="controls:SideMenuItem">
+                <Setter Property="SymbolForeground" Value="DodgerBlue" />
+                <Setter Property="SymbolFontSize" Value="26" />
+                <Setter Property="SelectionIndicatorMargin" Value="0,0,10,0" />
+                <Setter Property="Height" Value="48" />
+            </Style>
+        </controls:SideMenu.Resources>
+        <controls:SideMenuItem Content="Page1" PageTypeName="Page1"/>
+        <controls:SideMenuItem Content="Page2" PageTypeName="Page2" Symbol="&#xE136;" SymbolForeground="MediumSlateBlue"/>
+        <controls:SideMenuItem Content="UserControl1" PageTypeName="UserControl1" Symbol="&#xE163;" SymbolForeground="OrangeRed"/>
+        <controls:SideMenuItem Content="UserControl2" PageTypeName="UserControl2" Symbol="&#xE726;" SymbolForeground="Yellow"/>
+    </controls:SideMenu>
 </controls:CustomWindow>
