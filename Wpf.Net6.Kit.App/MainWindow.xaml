@@ -1,5 +1,4 @@
-﻿
-<controls:CustomWindow
+﻿<controls:CustomWindow
     x:Class="Wpf.Net6.Kit.App.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -28,7 +27,7 @@
         <Image Source="{Binding ElementName=customWindow, Path=Icon}" Margin="5" />
     </controls:CustomWindow.IconArea>
     <controls:CustomWindow.TitleBarRightArea>
-            <Button VerticalAlignment="Top" Height="40" Padding="10,0" Background="Transparent" Margin="0,0,10,0"
+        <Button VerticalAlignment="Top" Height="40" Padding="10,0" Background="Transparent" Margin="0,0,10,0"
                 Foreground="{Binding ElementName=customWindow, Path=TitleBarForeground}" BorderThickness="0"
                 WindowChrome.IsHitTestVisibleInChrome="True">
             <StackPanel
@@ -39,7 +38,11 @@
         </Button>
     </controls:CustomWindow.TitleBarRightArea>
     <Grid>
-        <ListBox BorderBrush="Black" BorderThickness="1" Margin="30">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="43*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox BorderBrush="Black" BorderThickness="1" Margin="3,3,3,3" Grid.Column="1" >
             <ListBox.Resources>
                 <Style
                     TargetType="controls:SideMenuItem">
