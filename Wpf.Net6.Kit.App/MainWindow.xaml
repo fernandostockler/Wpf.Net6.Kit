@@ -48,7 +48,7 @@
                         Value="35" />
                 </Style>
             </ListBox.Resources>
-            <controls:SideMenuItem />
+            <controls:SideMenuItem Content="  Home" />
             <controls:SideMenuItem FontSize="20"
                 Symbol="&#xE12B;"
                 Content="  Mapas" />
