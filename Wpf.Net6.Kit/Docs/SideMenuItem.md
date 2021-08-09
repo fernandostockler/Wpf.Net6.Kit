@@ -23,13 +23,10 @@ Propriedade | Type | Descrição
 
 Exemplo :
 ~~~~
-<controls:SideMenuItem 
-    Content="Page2" 
-    PageTypeName="Page2" 
-    Symbol="&#xE136;" 
-    SymbolForeground="MediumSlateBlue"
-    SymbolFontSize=26
-    Height=48 />
+<controls: SideMenuItem 
+    Content="Page2" PageTypeName="Page2" Height=48
+    SymbolFontFamily="Segoe MDL2 Assets" Symbol="&#xE136;" 
+    SymbolForeground="MediumSlateBlue" SymbolFontSize=26/>
 ~~~~ 
 Resulta em :
 
