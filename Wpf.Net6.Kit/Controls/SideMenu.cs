@@ -1,20 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Wpf.Net6.Kit.Controls.Shared;
 
 namespace Wpf.Net6.Kit.Controls
@@ -232,8 +225,8 @@ namespace Wpf.Net6.Kit.Controls
         private void SideMenu_Loaded(object sender, RoutedEventArgs e)
         {
             SideMenuItem sideMenuItem = (SideMenuItem)SelectedItem;
-            string pageInfo = SelectedIndex > -1 ? sideMenuItem.PageTypeName : NoItemIsSelected;
-            SelectPage(pageInfo);
+            string pageTypeName = SelectedIndex > -1 ? sideMenuItem.PageTypeName : NoItemIsSelected;
+            SelectPage(pageTypeName);
         }
 
         private void SideMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -241,6 +234,17 @@ namespace Wpf.Net6.Kit.Controls
             if (e.AddedItems.Count > 0 && e.AddedItems[0] is SideMenuItem item)
             {
                 SelectPage(item.PageTypeName);
+            }
+        }
+
+        private void SelectPage(string pageTypeName)
+        {
+            if (IsLoaded)
+            {
+                bool hasNoSelectedItems = !string.IsNullOrEmpty(pageTypeName) && pageTypeName == NoItemIsSelected;
+                PartFrame.Content = hasNoSelectedItems || Pages.Count == 0
+                    ? BackgroundPage : Pages.ContainsKey(pageTypeName)
+                    ? Pages[pageTypeName] : PageNotFounded;
             }
         }
 
@@ -277,17 +281,6 @@ namespace Wpf.Net6.Kit.Controls
             OnPropertyChanged(new(MenuWidthProperty, oldValue, MenuWidth));
             ActualMenuMaxWidth = MenuWidth;
             e.Handled = true;
-        }
-
-        private void SelectPage(string pageTypeName)
-        {
-            if (IsLoaded)
-            {
-                bool hasNoSelectedItems = !string.IsNullOrEmpty(pageTypeName) && pageTypeName == NoItemIsSelected;
-                PartFrame.Content = hasNoSelectedItems || Pages.Count == 0
-                    ? BackgroundPage : Pages.ContainsKey(pageTypeName)
-                    ? Pages[pageTypeName] : PageNotFounded;
-            }
         }
 
         private T GetTemplateChild<T>(string childName) where T : DependencyObject

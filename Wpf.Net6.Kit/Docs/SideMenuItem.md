@@ -17,7 +17,7 @@ Propriedade | Descrição
 **`SymbolFontFamily`** | Obtem ou define o FontFamily utilizado pela propridade Symbol.
 **`SymbolForeground`** | Obtem ou define o pincel que representa a cor do icone.
 **`SymbolFontSize`** | Obtem ou define o tamanho da fonte responsável pelo tamanho icone.
-**`SymbolMargin`** | Obtem ou define a margem em torno do icone.
+SymbolMargin`** | Obtem ou define a margem em torno do icone.
 
 <br/>
 
