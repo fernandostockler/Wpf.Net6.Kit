@@ -52,6 +52,10 @@ Se nenhum item estiver selecionado ou se a propriedade Pages não contiver nenhu
 
 ![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu_NoItemSelected_message.png?raw=true)
 
+A navegação ocorre selecionado-se um item.
+
+![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu_ItemSelected.png?raw=true)
+
 <br/>
 
 ### Propriedades do hamburger menu
