@@ -12,7 +12,7 @@ Propriedade | Descrição
 
 <br/>
 
->A propriedade **`Pages`** trabalha em conjunto com o controle **`SideMenuItem`**. 
+>A propriedade **`Pages`** trabalha em conjunto com o controle SideMenuItem. 
 >Defina a propriedade **`PageTypeName`** em SideMenuItem com o nome da classe para qual deseja navegar.
 >Em **`SideMenu.Pages`** inclua no dicionário uma entrada em que a chave seja o nome da classe e o valor seja uma 
 >instância desta classe.
@@ -37,4 +37,7 @@ Propriedade | Descrição
 
 
 ![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu.png?raw=true)
+
+Se nenhum item estiver selecionado ou se a propriedade Pages não contiver nenhuma entrada esta mensagem padrão será exibida.
+
 ![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu_NoItemSelected_message.png?raw=true)
