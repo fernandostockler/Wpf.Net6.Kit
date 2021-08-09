@@ -30,3 +30,6 @@ Propriedade | Descrição
 <br/>
 
 ### Propriedade CustomArea
+
+
+![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu.png?raw=true)

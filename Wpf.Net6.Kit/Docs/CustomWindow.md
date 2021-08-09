@@ -57,5 +57,5 @@ OverlayBackground | Gets or sets a brush that represents the background of the l
 ShowCustomDialog | Gets or sets the visibility of the layer that covers the window.
 CustomDialog | Gets or sets a FrameworkElement that represents an interactive modal control that will only be visible if the ShowCustomDialog property is true.
 
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Small_White_Dialog_Green.png?raw=true)
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_White_Dialog_Blue_Red.png?raw=true)
+![CustomWindow sample](/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Small_White_Dialog_Green.png?raw=true)
+![CustomWindow sample](/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_White_Dialog_Blue_Red.png?raw=true)
