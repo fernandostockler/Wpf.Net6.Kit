@@ -17,6 +17,7 @@
     <None Remove="Docs\Assets\CustomWindow_Mid_White_Left_Right_Blue.png" />
     <None Remove="Docs\Assets\CustomWindow_sample1_xaml.png" />
     <None Remove="Docs\Assets\CustomWindow_Small_White_Dialog_Green.png" />
+    <None Remove="Docs\Assets\SideMenu\SideMenu.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +27,11 @@
     <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Mid_White_Left_Right_Blue.png" />
     <Resource Include="Docs\Assets\CustomWindow\CustomWindow_sample1_xaml.png" />
     <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Small_White_Dialog_Green.png" />
+    <Resource Include="Docs\Assets\SideMenu\SideMenu.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Docs\Assets\SideMenuItem\" />
   </ItemGroup>
 
 </Project>
