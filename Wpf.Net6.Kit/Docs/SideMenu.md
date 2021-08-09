@@ -48,6 +48,10 @@ public MainWindow()
 }
 ~~~~
 
+Se nenhum item estiver selecionado ou se a propriedade Pages não contiver nenhuma entrada esta mensagem padrão será exibida.
+
+![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu_NoItemSelected_message.png?raw=true)
+
 <br/>
 
 ### Propriedades do hamburger menu
@@ -69,6 +73,3 @@ Propriedade | Descrição
 
 ![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu.png?raw=true)
 
-Se nenhum item estiver selecionado ou se a propriedade Pages não contiver nenhuma entrada esta mensagem padrão será exibida.
-
-![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu_NoItemSelected_message.png?raw=true)
