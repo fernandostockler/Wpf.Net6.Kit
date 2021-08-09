@@ -24,7 +24,13 @@ Propriedade | Type | Descrição
 Exemplos:
 
 ~~~~
-<controls:SideMenuItem Content="Page2" PageTypeName="Page2" Symbol="&#xE136;" SymbolForeground="MediumSlateBlue"/>
+<controls:SideMenuItem 
+    Content="Page2" 
+    PageTypeName="Page2" 
+    Symbol="&#xE136;" 
+    SymbolForeground="MediumSlateBlue"
+    SymbolFontSize=26
+    Height=48 />
 ~~~~
 Resulta em:
 
