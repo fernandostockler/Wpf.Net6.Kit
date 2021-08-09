@@ -22,15 +22,19 @@ namespace Wpf.Net6.Kit.Controls
         private const string NoItemIsSelected = "NoItemIsSelected";
         private readonly TextBlock BackgroundPageTextBlock = new()
         {
-            Text = "Use DefaultBackgroundPage property to set this page with any FrameworkElement.",
-            FontSize = 18,
-            Foreground = Brushes.Violet,
+
+            Text = "This will be displayed if no items are selected or if the Pages property does not contain any entries. Use BackgroundPage property to set this page with any FrameworkElement or set to null.",
+            FontSize = 20,
+            Foreground = Brushes.Black,
             Padding = new Thickness(50, 20, 50, 20),
             TextAlignment = TextAlignment.Center,
             HorizontalAlignment = HorizontalAlignment.Center,
             VerticalAlignment = VerticalAlignment.Center,
             TextWrapping = TextWrapping.Wrap
         };
+
+        //TODO: meke a property to handle custom PageNotFounded like BackgroundPage property.
+
         private readonly TextBlock PageNotFounded = new()
         {
             Text = "Page not founded!",

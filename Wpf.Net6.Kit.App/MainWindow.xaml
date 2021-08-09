@@ -37,7 +37,7 @@
             </StackPanel>
         </Button>
     </controls:CustomWindow.TitleBarRightArea>
-    <controls:SideMenu x:Name="sideMenu">
+    <controls:SideMenu x:Name="sideMenu" >
         <controls:SideMenu.Resources>
             <Style TargetType="controls:SideMenuItem">
                 <Setter Property="SymbolForeground" Value="DodgerBlue" />

@@ -1,5 +1,7 @@
 ﻿# **SideMenu**
 
+
+
 ### Propriedades para navegação
 
 Propriedade | Descrição
@@ -7,6 +9,8 @@ Propriedade | Descrição
 **`Pages`** | Obtem ou define um dicionário com as páginas (qualquer FrameWorkElement) para navegação usado pelo Frame interno. 
 **`BackgroundPage`** | Obtem ou define um FrameworkElement que representa a página de fundo da aplicação, que será exibida se nenhum item estiver selecionado ou se a propriedade Pages não contiver nenhuma entrada.
 **`NavigationUIVisibility`** | Obtem ou define um valor que representa a visibilidade da barra de navegação do frame.
+
+<br/>
 
 >A propriedade **`Pages`** trabalha em conjunto com o controle **`SideMenuItem`**. 
 >Defina a propriedade **`PageTypeName`** em SideMenuItem com o nome da classe para qual deseja navegar.
