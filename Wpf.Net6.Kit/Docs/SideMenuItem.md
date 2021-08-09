@@ -21,8 +21,7 @@ Propriedade | Type | Descrição
 
 <br/>
 
-Exemplos:
-
+Exemplo :
 ~~~~
 <controls:SideMenuItem 
     Content="Page2" 
@@ -31,8 +30,8 @@ Exemplos:
     SymbolForeground="MediumSlateBlue"
     SymbolFontSize=26
     Height=48 />
-~~~~
-Resulta em:
+~~~~ 
+Resulta em :
 
 ![SideMenuItem sample](/Wpf.Net6.Kit/Docs/Assets/SideMenuItem/SideMenuItem_samplePage2.png?raw=true)
 
