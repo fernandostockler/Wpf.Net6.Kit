@@ -17,6 +17,8 @@ Defina a propriedade **`PageTypeName`** em SideMenuItem com o nome da classe par
 Em **`SideMenu.Pages`** inclua no dicionário uma entrada em que a chave seja o nome da classe e o valor seja uma 
 instância desta classe.
 
+Veja o exemplo:
+
 ~~~~
     <controls:SideMenu x:Name="sideMenu" >
         <controls:SideMenu.Resources>
