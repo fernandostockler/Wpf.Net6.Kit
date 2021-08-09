@@ -12,7 +12,7 @@ Propriedade | Type | Descrição
 ## Propriedades do icone
 
 Propriedade | Type | Descrição
------ | ------
+----- | ------ | -----
 **`Symbol`** | string |  Obtem ou define uma cadeia de caracteres que representa o código do símbolo exibido como o icone.
 **`SymbolFontFamily`** | FontFamily | Obtem ou define o FontFamily utilizado pela propridade Symbol.
 **`SymbolForeground`** | Brush | Obtem ou define o pincel que representa a cor do icone.
