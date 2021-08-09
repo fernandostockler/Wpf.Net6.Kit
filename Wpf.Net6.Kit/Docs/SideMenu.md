@@ -20,20 +20,20 @@ instância desta classe.
 Veja o exemplo:
 
 ~~~~
-    <controls:SideMenu x:Name="sideMenu" >
-        <controls:SideMenu.Resources>
-            <Style TargetType="controls:SideMenuItem">
-                <Setter Property="SymbolForeground" Value="DodgerBlue" />
-                <Setter Property="SymbolFontSize" Value="26" />
-                <Setter Property="SelectionIndicatorMargin" Value="0,0,10,0" />
-                <Setter Property="Height" Value="48" />
-            </Style>
-        </controls:SideMenu.Resources>
-        <controls:SideMenuItem Content="Page1" PageTypeName="Page1"/>
-        <controls:SideMenuItem Content="Page2" PageTypeName="Page2" Symbol="&#xE136;" SymbolForeground="MediumSlateBlue"/>
-        <controls:SideMenuItem Content="UserControl1" PageTypeName="UserControl1" Symbol="&#xE163;" SymbolForeground="OrangeRed"/>
-        <controls:SideMenuItem Content="UserControl2" PageTypeName="UserControl2" Symbol="&#xE726;" SymbolForeground="Yellow"/>
-    </controls:SideMenu>
+<controls:SideMenu x:Name="sideMenu" >
+    <controls:SideMenu.Resources>
+        <Style TargetType="controls:SideMenuItem">
+            <Setter Property="SymbolForeground" Value="DodgerBlue" />
+            <Setter Property="SymbolFontSize" Value="26" />
+            <Setter Property="SelectionIndicatorMargin" Value="0,0,10,0" />
+            <Setter Property="Height" Value="48" />
+        </Style>
+    </controls:SideMenu.Resources>
+    <controls:SideMenuItem Content="Page1" PageTypeName="Page1"/>
+    <controls:SideMenuItem Content="Page2" PageTypeName="Page2" Symbol="&#xE136;" SymbolForeground="MediumSlateBlue"/>
+    <controls:SideMenuItem Content="UserControl1" PageTypeName="UserControl1" Symbol="&#xE163;" SymbolForeground="OrangeRed"/>
+    <controls:SideMenuItem Content="UserControl2" PageTypeName="UserControl2" Symbol="&#xE726;" SymbolForeground="Yellow"/>
+</controls:SideMenu>
 ~~~~
 
 In code-behind:
