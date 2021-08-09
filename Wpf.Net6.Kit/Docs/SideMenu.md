@@ -37,3 +37,4 @@ Propriedade | Descrição
 
 
 ![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu.png?raw=true)
+![SideMenu sample](/Wpf.Net6.Kit/Docs/Assets/SideMenu/SideMenu_NoItemSelected_message.png?raw=true)
