@@ -39,3 +39,17 @@ Propriedade | Type | Descrição
 **`SelectionIndicatorBrush`** | Brush | Obtem ou define o pincel que representa a cor do indicador de seleção.
 **`SelectionIndicatorWidth`** | double | Obtem ou define a largura do indicador de seleção.
 **`SelectionIndicatorMargin`** | Thickness | Obtem ou define a margem em torno do indicador de seleção.
+
+Exemplo :
+
+~~~~
+<controls:SideMenuItem Content="UserControl1" PageTypeName="UserControl1" 
+    Symbol="&#xE163;" SymbolForeground="OrangeRed" 
+    SelectionIndicatorBrush="#FFCDA132" 
+    SelectionIndicatorWidth="10" 
+    IsSelected="True"/>
+~~~~
+
+Resulta em :
+
+![SideMenuItem sample](/Wpf.Net6.Kit/Docs/Assets/SideMenuItem/SideMenuItem_sampleUserControl1.png?raw=true)

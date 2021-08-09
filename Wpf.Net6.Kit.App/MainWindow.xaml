@@ -48,7 +48,7 @@
         </controls:SideMenu.Resources>
         <controls:SideMenuItem Content="Page1" PageTypeName="Page1"/>
         <controls:SideMenuItem Content="Page2" PageTypeName="Page2" Symbol="&#xE136;" SymbolForeground="MediumSlateBlue"/>
-        <controls:SideMenuItem Content="UserControl1" PageTypeName="UserControl1" Symbol="&#xE163;" SymbolForeground="OrangeRed"/>
+        <controls:SideMenuItem Content="UserControl1" PageTypeName="UserControl1" Symbol="&#xE163;" SymbolForeground="OrangeRed" SelectionIndicatorBrush="#FFCDA132" SelectionIndicatorWidth="10" IsSelected="True"/>
         <controls:SideMenuItem Content="UserControl2" PageTypeName="UserControl2" Symbol="&#xE726;" SymbolForeground="Yellow"/>
     </controls:SideMenu>
 </controls:CustomWindow>
