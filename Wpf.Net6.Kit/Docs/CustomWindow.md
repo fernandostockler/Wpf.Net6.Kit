@@ -2,7 +2,7 @@
 É uma janela que permite a personalização da área não-cliente, possuí um modo kiosk e tem um mecanismo para exibição de conteúdo modal. A seguir as principais funcionalidades da classe CustomWindow:<br/><br/>
 
 ## Área não-cliente personalizável 
-![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_White.png?raw=true)
+![CustomWindow sample](/Docs/Assets/CustomWindow/CustomWindow_Mid_White.png?raw=true)
 ![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_White_Left_Right_Blue.png?raw=true)
 ![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_Mid_Blue_Gray_Left_Right.png?raw=true)
 ![CustomWindow sample](https://github.com/fernandostockler/Wpf.Net6.Kit/blob/development/Wpf.Net6.Kit/Docs/Assets/CustomWindow/CustomWindow_sample1_xaml.png?raw=true)
