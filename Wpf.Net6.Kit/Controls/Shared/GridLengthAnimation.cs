@@ -5,14 +5,14 @@ using System.Windows.Media.Animation;
 namespace Wpf.Net6.Kit.Controls.Shared
 {
     /// <summary>
-    /// Animates a grid length value just like the DoubleAnimation animates a double value
+    /// Animates a grid length value just like the DoubleAnimation animates a double value.
     /// </summary>
     public class GridLengthAnimation : AnimationTimeline
     {
         private bool isCompleted;
 
         /// <summary>
-        /// Marks the animation as completed
+        /// Marks the animation as completed.
         /// </summary>
         public bool IsCompleted
         {
@@ -21,7 +21,7 @@ namespace Wpf.Net6.Kit.Controls.Shared
         }
 
         /// <summary>
-        /// Sets the reverse value for the second animation
+        /// Sets the reverse value for the second animation.
         /// </summary>
         public double ReverseValue
         {
@@ -29,7 +29,7 @@ namespace Wpf.Net6.Kit.Controls.Shared
             set => SetValue(ReverseValueProperty, value);
         }
         /// <summary>
-        /// Dependency property. Sets the reverse value for the second animation
+        /// Dependency property. Sets the reverse value for the second animation.
         /// </summary>
         public static readonly DependencyProperty ReverseValueProperty =
             DependencyProperty.Register(
@@ -40,7 +40,7 @@ namespace Wpf.Net6.Kit.Controls.Shared
                     defaultValue: 0.0));
 
         /// <summary>
-        /// CLR Wrapper for the From depenendency property
+        /// CLR Wrapper for the From depenendency property.
         /// </summary>
         public GridLength From
         {
@@ -74,23 +74,23 @@ namespace Wpf.Net6.Kit.Controls.Shared
                 ownerType: typeof(GridLengthAnimation));
 
         /// <summary>
-        /// Returns the type of object to animate
+        /// Returns the type of object to animate.
         /// </summary>
         public override Type TargetPropertyType => typeof(GridLength);
 
         /// <summary>
-        /// Creates an instance of the animation object
+        /// Creates an instance of the animation object.
         /// </summary>
         /// <returns>Returns the instance of the GridLengthAnimation</returns>
         protected override Freezable CreateInstanceCore() => new GridLengthAnimation();
 
         /// <summary>
-        /// Animates the grid let set
+        /// Animates the grid let set.
         /// </summary>
-        /// <param name=”defaultOriginValue”>The original value to animate</param>
-        /// <param name=”defaultDestinationValue”>The final value</param>
-        /// <param name=”animationClock”>The animation clock (timer)</param>
-        /// <returns>Returns the new grid length to set</returns>
+        /// <param name="defaultOriginValue"></param>
+        /// <param name="defaultDestinationValue"></param>
+        /// <param name="animationClock"></param>
+        /// <returns></returns>
         public override object GetCurrentValue(object defaultOriginValue, object defaultDestinationValue, AnimationClock animationClock)
         {
             //check the animation clock event
