@@ -13,8 +13,43 @@ using Wpf.Net6.Kit.Controls.Shared;
 namespace Wpf.Net6.Kit.Controls
 {
     /// <summary>
-    /// CustomWindow class.
+    /// CustomWindow é uma janela que permite a personalização da área não-cliente, possuí um modo kiosk e tem um mecanismo para exibição de conteúdo modal.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// A barra de título foi dividida em quatro regiões:
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Propriedade</term>
+    /// <term>Descrição</type>
+    /// <term>Posição</term>
+    /// </listheader>
+    /// <item>
+    /// <description><c>TitleBarIcon</c></description>
+    /// <description>FrameworkElement</description>
+    /// <description>Totalmente a esquerda, no início da barra de título.</description>
+    /// </item>
+    /// <item>
+    /// <description><c>TitleBarLeftArea</c></description>
+    /// <description>FrameworkElement</description>
+    /// <description>A direita da região do icone (TitleBarIcon).</description>
+    /// </item>
+    /// <item>
+    /// <description><c>Title</c></description>
+    /// <description>String</description>
+    /// <description>A direita de TitleBarLeftArea.</description>
+    /// </item>
+    /// <item>
+    /// <description><c>TitleBarRightArea</c></description>
+    /// <description>FrameworkElement</description>
+    /// <description>A direita de Title.</description>
+    /// </item>
+    /// </list>
+    /// </para>
+    /// <para>
+    /// Para interagir com estes elementos na área não-cliente acrescente o atributo <c>WindowChrome.IsHitTestVisibleInChrome="True"</c>.
+    /// </para>
+    /// </remarks>
     [TemplatePart(Name = PART_Icon, Type = typeof(ContentControl))]
     [TemplatePart(Name = PART_LeftArea, Type = typeof(ContentControl))]
     [TemplatePart(Name = PART_Title, Type = typeof(ContentControl))]

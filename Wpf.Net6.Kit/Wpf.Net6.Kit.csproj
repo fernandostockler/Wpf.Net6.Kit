@@ -25,6 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="docfx.console" Version="2.58.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Mid_Blue_Gray_Left_Right.png" />
     <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Mid_White.png" />
     <Resource Include="Docs\Assets\CustomWindow\CustomWindow_Mid_White_Dialog_Blue_Red.png" />
