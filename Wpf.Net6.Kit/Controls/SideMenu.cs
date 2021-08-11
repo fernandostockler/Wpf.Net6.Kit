@@ -35,7 +35,20 @@ namespace Wpf.Net6.Kit.Controls
 
         //TODO: meke a property to handle custom PageNotFounded like BackgroundPage property.
 
-        private readonly TextBlock PageNotFounded = new()
+
+        public FrameworkElement PageNotFoudedMessage
+        {
+            get => (FrameworkElement)GetValue(PageNotFoudedMessageProperty);
+            set => SetValue(PageNotFoudedMessageProperty, value);
+        }
+        public static readonly DependencyProperty PageNotFoudedMessageProperty =
+            DependencyProperty.Register(
+                name: nameof(PageNotFoudedMessage),
+                propertyType: typeof(FrameworkElement),
+                ownerType: typeof(SideMenu),
+                typeMetadata: new PropertyMetadata(PageNotFounded));
+
+        private static readonly TextBlock PageNotFounded = new()
         {
             Text = "Page not founded!",
             HorizontalAlignment = HorizontalAlignment.Center,
