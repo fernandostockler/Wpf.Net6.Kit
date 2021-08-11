@@ -33,9 +33,6 @@ namespace Wpf.Net6.Kit.Controls
             TextWrapping = TextWrapping.Wrap
         };
 
-        //TODO: meke a property to handle custom PageNotFounded like BackgroundPage property.
-
-
         public FrameworkElement PageNotFoudedMessage
         {
             get => (FrameworkElement)GetValue(PageNotFoudedMessageProperty);
@@ -261,7 +258,7 @@ namespace Wpf.Net6.Kit.Controls
                 bool hasNoSelectedItems = !string.IsNullOrEmpty(pageTypeName) && pageTypeName == NoItemIsSelected;
                 PartFrame.Content = hasNoSelectedItems || Pages.Count == 0
                     ? BackgroundPage : Pages.ContainsKey(pageTypeName)
-                    ? Pages[pageTypeName] : PageNotFounded;
+                    ? Pages[pageTypeName] : PageNotFoudedMessage;
             }
         }
 
