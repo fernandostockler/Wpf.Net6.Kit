@@ -16,12 +16,8 @@ namespace Wpf.Net6.Kit.Controls
     /// CustomWindow é uma janela que permite a personalização da área não-cliente, possuí um modo kiosk e tem um mecanismo para exibição de conteúdo modal.
     /// </summary>
     /// <remarks>
-    /// <para>
-    /// A barra de título foi dividida em quatro regiões:
-    /// </para>
-    /// <para>
+    /// A barra de título foi dividida em quatro regiões: Icone, entre o icone e o título e depois do título e antes dos botões da janela.
     /// Para interagir com estes elementos na área não-cliente acrescente o atributo <c>WindowChrome.IsHitTestVisibleInChrome="True"</c>.
-    /// </para>
     /// </remarks>
     [TemplatePart(Name = PART_Icon, Type = typeof(ContentControl))]
     [TemplatePart(Name = PART_LeftArea, Type = typeof(ContentControl))]
