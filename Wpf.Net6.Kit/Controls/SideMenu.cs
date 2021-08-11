@@ -258,7 +258,7 @@ namespace Wpf.Net6.Kit.Controls
                 bool hasNoSelectedItems = !string.IsNullOrEmpty(pageTypeName) && pageTypeName == NoItemIsSelected;
                 PartFrame.Content = hasNoSelectedItems || Pages.Count == 0
                     ? BackgroundPage : Pages.ContainsKey(pageTypeName)
-                    ? Pages[pageTypeName] : PageNotFoudedMessage;
+                    ? Pages[pageTypeName] : PageNotFoudedMessage; 
             }
         }
 
