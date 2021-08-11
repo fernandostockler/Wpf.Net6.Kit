@@ -33,26 +33,6 @@ namespace Wpf.Net6.Kit.Controls
             TextWrapping = TextWrapping.Wrap
         };
 
-        public FrameworkElement PageNotFoudedMessage
-        {
-            get => (FrameworkElement)GetValue(PageNotFoudedMessageProperty);
-            set => SetValue(PageNotFoudedMessageProperty, value);
-        }
-        public static readonly DependencyProperty PageNotFoudedMessageProperty =
-            DependencyProperty.Register(
-                name: nameof(PageNotFoudedMessage),
-                propertyType: typeof(FrameworkElement),
-                ownerType: typeof(SideMenu),
-                typeMetadata: new PropertyMetadata(PageNotFounded));
-
-        private static readonly TextBlock PageNotFounded = new()
-        {
-            Text = "Page not founded!",
-            HorizontalAlignment = HorizontalAlignment.Center,
-            VerticalAlignment = VerticalAlignment.Center,
-            FontSize = 42.0
-        };
-
         static SideMenu()
         {
             DefaultStyleKeyProperty.OverrideMetadata(forType: typeof(SideMenu), typeMetadata: new FrameworkPropertyMetadata(typeof(SideMenu)));
@@ -103,6 +83,27 @@ namespace Wpf.Net6.Kit.Controls
                 propertyType: typeof(FrameworkElement),
                 ownerType: typeof(SideMenu),
                 typeMetadata: new PropertyMetadata(defaultValue: null));
+
+        [Category(Comum)]
+        public FrameworkElement PageNotFoudedMessage
+        {
+            get => (FrameworkElement)GetValue(PageNotFoudedMessageProperty);
+            set => SetValue(PageNotFoudedMessageProperty, value);
+        }
+        public static readonly DependencyProperty PageNotFoudedMessageProperty =
+            DependencyProperty.Register(
+                name: nameof(PageNotFoudedMessage),
+                propertyType: typeof(FrameworkElement),
+                ownerType: typeof(SideMenu),
+                typeMetadata: new PropertyMetadata(PageNotFounded));
+
+        private static readonly TextBlock PageNotFounded = new()
+        {
+            Text = "Page not founded!",
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            FontSize = 42.0
+        };
 
         [Category(Comum)]
         [Description("Obtem ou define um valor que representa a visibilidade da barra de navegação do frame.")]
