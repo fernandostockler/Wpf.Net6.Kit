@@ -129,7 +129,7 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(26.0));
 
         [Category(ClassName)]
-        [Description("")]
+        [Description("Obtem ou define um valor do tipo Thickness que representa a margim entorno do icone.")]
 
         public Thickness SymbolMargin
         {
