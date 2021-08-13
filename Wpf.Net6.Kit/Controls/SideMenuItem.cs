@@ -2,14 +2,21 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Wpf.Net6.Kit.Controls
 {
+    [TemplatePart(Name = PART_Rectangle, Type = typeof(Rectangle))]
+    [TemplatePart(Name = PART_Symbol, Type = typeof(TextBlock))]
+    [TemplatePart(Name = PART_Border, Type = typeof(Border))]
     public class SideMenuItem : ListBoxItem
     {
         private const string ClassName = "SideMenuItem";
         private const string SegoeMDL2Assets = "Segoe MDL2 Assets";
         private const string HomeSymbol = "\uE10F";
+        private const string PART_Rectangle = "PART_Rectangle";
+        private const string PART_Symbol = "PART_Symbol";
+        private const string PART_Border = "PART_Border";
 
         static SideMenuItem()
         {
