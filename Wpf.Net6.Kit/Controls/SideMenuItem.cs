@@ -28,7 +28,7 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(PageTypeName),
                 propertyType: typeof(string),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(string.Empty));
+                typeMetadata: new PropertyMetadata(defaultValue: string.Empty));
 
         [Category(ClassName)]
         [Description("Obtem ou define o pincel que representa a cor do indicador de seleção.")]
@@ -56,7 +56,7 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(SelectionIndicatorWidth),
                 propertyType: typeof(double),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(5.0));
+                typeMetadata: new PropertyMetadata(defaultValue: 5.0));
 
         [Category(ClassName)]
         [Description("Obtem ou define a margim entorno do indicador de seleção.")]
@@ -126,7 +126,7 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(SymbolFontSize),
                 propertyType: typeof(double),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(26.0));
+                typeMetadata: new PropertyMetadata(defaultValue: 26.0));
 
         [Category(ClassName)]
         [Description("Obtem ou define um valor do tipo Thickness que representa a margim entorno do icone.")]
@@ -141,6 +141,7 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(SymbolMargin),
                 propertyType: typeof(Thickness),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(new Thickness(0, 0, 12, 0)));
+                typeMetadata: new PropertyMetadata(
+                    defaultValue: new Thickness(0, 0, 12, 0)));
     }
 }
