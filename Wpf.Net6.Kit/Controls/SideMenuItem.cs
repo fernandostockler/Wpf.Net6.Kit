@@ -115,7 +115,7 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new FrameworkPropertyMetadata(defaultValue: Brushes.Black));
 
         [Category(ClassName)]
-        [Description("")]
+        [Description("Obtem ou define um valor do tipo double que representa o tamanho da fonte utilizada para exibir o icone.")]
         public double SymbolFontSize
         {
             get => (double)GetValue(SymbolFontSizeProperty);
