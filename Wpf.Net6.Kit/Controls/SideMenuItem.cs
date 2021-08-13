@@ -59,7 +59,7 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(5.0));
 
         [Category(ClassName)]
-        [Description("")]
+        [Description("Obtem ou define a margim entorno do indicador de seleção.")]
         public Thickness SelectionIndicatorMargin
         {
             get => (Thickness)GetValue(SelectionIndicatorMarginProperty);
