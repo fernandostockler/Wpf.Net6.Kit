@@ -7,7 +7,7 @@ namespace Wpf.Net6.Kit.Controls
 {
     public class SideMenuItem : ListBoxItem
     {
-        private const string SideMenuItemCategory = "SideMenuItem";
+        private const string ClassName = "SideMenuItem";
         private const string SegoeMDL2Assets = "Segoe MDL2 Assets";
         private const string HomeSymbol = "\uE10F";
 
@@ -16,7 +16,7 @@ namespace Wpf.Net6.Kit.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(SideMenuItem), new FrameworkPropertyMetadata(typeof(SideMenuItem)));
         }
 
-        [Category(SideMenuItemCategory)]
+        [Category(ClassName)]
         [Description("Obtem ou define a propriedade PageTypeName que representa a chave no dicionário da propriedade Pages do controle SideMenu associado, responsável pela navegação.")]
         public string PageTypeName
         {
@@ -30,7 +30,7 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(string.Empty));
 
-        [Category(SideMenuItemCategory)]
+        [Category(ClassName)]
         [Description("Obtem ou define o pincel que representa a cor do indicador de seleção.")]
         public Brush SelectionIndicatorBrush
         {
@@ -44,7 +44,7 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(defaultValue: new SolidColorBrush(Colors.YellowGreen)));
 
-        [Category(SideMenuItemCategory)]
+        [Category(ClassName)]
         [Description("Obtem ou define a largura do indicador de seleção.")]
         public double SelectionIndicatorWidth
         {
@@ -58,7 +58,7 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(5.0));
 
-        [Category(SideMenuItemCategory)]
+        [Category(ClassName)]
         [Description("")]
         public Thickness SelectionIndicatorMargin
         {
@@ -72,7 +72,7 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(defaultValue: new Thickness(0, 0, 5, 0)));
 
-        [Category(SideMenuItemCategory)]
+        [Category(ClassName)]
         [Description("Obtem ou define uma cadeia de caracteres que representa o código do símbolo exibido como o icone.")]
         public string Symbol
         {
@@ -86,7 +86,7 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(defaultValue: HomeSymbol));
 
-        [Category(SideMenuItemCategory)]
+        [Category(ClassName)]
         [Description("Obtem ou define o FontFamily utilizado pela propridade Symbol.")]
         public FontFamily SymbolFontFamily
         {
@@ -100,7 +100,7 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(defaultValue: new FontFamily(SegoeMDL2Assets)));
 
-        [Category(SideMenuItemCategory)]
+        [Category(ClassName)]
         [Description("Obtem ou define o pincel que representa a cor do icone.")]
         public Brush SymbolForeground
         {
@@ -114,7 +114,7 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new FrameworkPropertyMetadata(defaultValue: Brushes.Black));
 
-        [Category(SideMenuItemCategory)]
+        [Category(ClassName)]
         [Description("")]
         public double SymbolFontSize
         {
@@ -128,7 +128,7 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenuItem),
                 typeMetadata: new PropertyMetadata(26.0));
 
-        [Category(SideMenuItemCategory)]
+        [Category(ClassName)]
         [Description("")]
 
         public Thickness SymbolMargin
