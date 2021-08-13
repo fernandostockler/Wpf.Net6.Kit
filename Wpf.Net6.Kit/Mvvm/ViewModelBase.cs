@@ -8,20 +8,43 @@ namespace Wpf.Net6.Kit.Mvvm
         protected ViewModelBase() { }
 
         private string _title = string.Empty;
+
         public string Title
         {
             get => _title;
             set => SetProperty(ref _title, value);
         }
 
-        protected virtual bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = "")
+        protected virtual bool SetProperty<T>(ref T storage, T newValue, [CallerMemberName] string? propertyName = "")
         {
-            if (EqualityComparer<T>.Default.Equals(storage, value))
+            if (EqualityComparer<T>.Default.Equals(storage, newValue))
             {
                 return false;
             }
-            storage = value;
+
+            NotifyPropertyChanging(propertyName);
+
+            storage = newValue;
+
             NotifyPropertyChanged(propertyName);
+
+            return true;
+        }
+
+
+        protected virtual bool SetProperty<T>(ref T storage, T newValue, IEqualityComparer<T> comparer, [CallerMemberName] string? propertyName = null)
+        {
+            if (comparer.Equals(storage, newValue))
+            {
+                return false;
+            }
+
+            NotifyPropertyChanging(propertyName);
+
+            storage = newValue;
+
+            NotifyPropertyChanged(propertyName);
+
             return true;
         }
     }
