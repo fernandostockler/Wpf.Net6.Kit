@@ -55,6 +55,67 @@ namespace Wpf.Net6.Kit.Controls
             ownerType: typeof(SideMenu),
             inputGestures: new(new List<KeyGesture>() { new(Key.Space, ModifierKeys.Shift) }));
 
+        private void TogglePanelCommandCanExecute(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
+
+        private void TogglePanelCommandExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            double oldValue = MenuWidth;
+            MenuWidth = MenuWidth > MenuMinWidth ? MenuMinWidth : ActualMenuMaxWidth;
+            OnPropertyChanged(new(MenuWidthProperty, oldValue, MenuWidth));
+            e.Handled = true;
+
+            GridLengthAnimation? animation = new()
+            {
+                From = new GridLength(oldValue, GridUnitType.Pixel),
+                To = new GridLength(MenuWidth, GridUnitType.Pixel),
+                Duration = new(TimeSpan.FromSeconds(0.15)),
+                AccelerationRatio = 0.4,
+                DecelerationRatio = 0.6
+            };
+
+            Storyboard? storyboard = new();
+            storyboard.Children.Add(animation);
+            Storyboard.SetTargetName(animation, PartLeftPanelColumn.Name);
+            PropertyPath propertyPath = new(ColumnDefinition.WidthProperty);
+            Storyboard.SetTargetProperty(animation, propertyPath);
+            storyboard.Begin(containingObject: PartLeftPanelColumn);
+        }
+
+        private void SideMenu_Loaded(object sender, RoutedEventArgs e)
+        {
+            SideMenuItem sideMenuItem = (SideMenuItem)SelectedItem;
+            string pageTypeName = SelectedIndex > -1 ? sideMenuItem.PageTypeName : NoItemIsSelected;
+            SelectPage(pageTypeName);
+        }
+
+        private void SideMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0 && e.AddedItems[0] is SideMenuItem item)
+            {
+                SelectPage(item.PageTypeName);
+            }
+        }
+
+        private void SelectPage(string pageTypeName)
+        {
+            if (IsLoaded)
+            {
+                bool hasNoSelectedItems = !string.IsNullOrEmpty(pageTypeName) && pageTypeName == NoItemIsSelected;
+                PartFrame.Content = hasNoSelectedItems || Pages.Count == 0
+                    ? BackgroundPage : Pages.ContainsKey(pageTypeName)
+                    ? Pages[pageTypeName] : PageNotFoudedMessage;
+            }
+        }
+
+        private void GridSplitter_DragCompleted(object sender, DragCompletedEventArgs e)
+        {
+            double oldValue = MenuWidth;
+            MenuWidth = oldValue + e.HorizontalChange;
+            OnPropertyChanged(new(MenuWidthProperty, oldValue, MenuWidth));
+            ActualMenuMaxWidth = MenuWidth;
+            e.Handled = true;
+        }
+
         [Category(Comum)]
         [Description("Obtem ou define um dicionário com as páginas (qualquer FrameWorkElement) para navegação usado pelo Frame interno.")]
         public Dictionary<string, FrameworkElement> Pages
@@ -85,6 +146,7 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(defaultValue: null));
 
         [Category(Comum)]
+        [Description("Obtem ou define um FrameworkElement que será exibido caso a página solicitada não tenha nenhuma correspondência em Pages[].")]
         public FrameworkElement PageNotFoudedMessage
         {
             get => (FrameworkElement)GetValue(PageNotFoudedMessageProperty);
@@ -237,66 +299,6 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: false));
 
-        private void SideMenu_Loaded(object sender, RoutedEventArgs e)
-        {
-            SideMenuItem sideMenuItem = (SideMenuItem)SelectedItem;
-            string pageTypeName = SelectedIndex > -1 ? sideMenuItem.PageTypeName : NoItemIsSelected;
-            SelectPage(pageTypeName);
-        }
-
-        private void SideMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (e.AddedItems.Count > 0 && e.AddedItems[0] is SideMenuItem item)
-            {
-                SelectPage(item.PageTypeName);
-            }
-        }
-
-        private void SelectPage(string pageTypeName)
-        {
-            if (IsLoaded)
-            {
-                bool hasNoSelectedItems = !string.IsNullOrEmpty(pageTypeName) && pageTypeName == NoItemIsSelected;
-                PartFrame.Content = hasNoSelectedItems || Pages.Count == 0
-                    ? BackgroundPage : Pages.ContainsKey(pageTypeName)
-                    ? Pages[pageTypeName] : PageNotFoudedMessage; 
-            }
-        }
-
-        private void TogglePanelCommandCanExecute(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
-
-        private void TogglePanelCommandExecuted(object sender, ExecutedRoutedEventArgs e)
-        {
-            double oldValue = MenuWidth;
-            MenuWidth = MenuWidth > MenuMinWidth ? MenuMinWidth : ActualMenuMaxWidth;
-            OnPropertyChanged(new(MenuWidthProperty, oldValue, MenuWidth));
-            e.Handled = true;
-
-            GridLengthAnimation? animation = new()
-            {
-                From = new GridLength(oldValue, GridUnitType.Pixel),
-                To = new GridLength(MenuWidth, GridUnitType.Pixel),
-                Duration = new(TimeSpan.FromSeconds(0.15)),
-                AccelerationRatio = 0.4,
-                DecelerationRatio = 0.6
-            };
-
-            Storyboard? storyboard = new();
-            storyboard.Children.Add(animation);
-            Storyboard.SetTargetName(animation, PartLeftPanelColumn.Name);
-            PropertyPath propertyPath = new(ColumnDefinition.WidthProperty);
-            Storyboard.SetTargetProperty(animation, propertyPath);
-            storyboard.Begin(containingObject: PartLeftPanelColumn);
-        }
-
-        private void GridSplitter_DragCompleted(object sender, DragCompletedEventArgs e)
-        {
-            double oldValue = MenuWidth;
-            MenuWidth = oldValue + e.HorizontalChange;
-            OnPropertyChanged(new(MenuWidthProperty, oldValue, MenuWidth));
-            ActualMenuMaxWidth = MenuWidth;
-            e.Handled = true;
-        }
 
         private T GetTemplateChild<T>(string childName) where T : DependencyObject
         {
