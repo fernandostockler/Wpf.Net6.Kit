@@ -11,12 +11,12 @@ namespace Wpf.Net6.Kit.Controls
     [TemplatePart(Name = PART_Border, Type = typeof(Border))]
     public class SideMenuItem : ListBoxItem
     {
-        private const string ClassName = "SideMenuItem";
-        private const string SegoeMDL2Assets = "Segoe MDL2 Assets";
-        private const string HomeSymbol = "\uE10F";
         private const string PART_Rectangle = "PART_Rectangle";
         private const string PART_Symbol = "PART_Symbol";
         private const string PART_Border = "PART_Border";
+        private const string ClassName = "SideMenuItem";
+        private const string SegoeMDL2Assets = "Segoe MDL2 Assets";
+        private const string HomeSymbol = "\uE10F";
 
         static SideMenuItem()
         {
@@ -148,7 +148,6 @@ namespace Wpf.Net6.Kit.Controls
                 name: nameof(SymbolMargin),
                 propertyType: typeof(Thickness),
                 ownerType: typeof(SideMenuItem),
-                typeMetadata: new PropertyMetadata(
-                    defaultValue: new Thickness(0, 0, 12, 0)));
+                typeMetadata: new PropertyMetadata(defaultValue: new Thickness(0, 0, 12, 0)));
     }
 }
