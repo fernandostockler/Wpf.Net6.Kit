@@ -52,6 +52,7 @@ namespace Wpf.Net6.Kit.Controls
         private void CustomWindow_Loaded(object sender, RoutedEventArgs e)
         {
             OriginalTitleBarHeight = TitleBarHeight;
+
             // Do not change the order of lines of code below.
             // OnKioskChanged() affects the value of the TitleBarHeight property.
             OnTitleBarHeightChanged(TitleBarHeight);
