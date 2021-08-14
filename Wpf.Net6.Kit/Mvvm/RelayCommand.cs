@@ -61,25 +61,13 @@ namespace Wpf.Net6.Kit.Mvvm
         public bool CanExecute(T? parameter) => canExecute?.Invoke(parameter) != false;
 
         /// <inheritdoc/>
-        public bool CanExecute(object? parameter)
-        {
-            if (default(T) is not null &&
-                parameter is null)
-            {
-                return false;
-            }
-
-            return CanExecute((T?)parameter);
-        }
+        public bool CanExecute(object? parameter) => (default(T) is null || parameter is not null) && CanExecute((T?)parameter);
 
         /// <inheritdoc/>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void Execute(T? parameter)
         {
-            if (CanExecute(parameter))
-            {
-                execute(parameter);
-            }
+            if (CanExecute(parameter)) execute(parameter);
         }
 
         /// <inheritdoc/>
