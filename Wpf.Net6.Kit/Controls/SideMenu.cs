@@ -168,6 +168,21 @@ namespace Wpf.Net6.Kit.Controls
         };
 
         [Category(Comum)]
+        [Description("Obtem ou define um pincel que representa a cor do fundo da área do conteúdo.")]
+        public Brush ContentBackground
+        {
+            get => (Brush)GetValue(ContentBackgroundProperty);
+            set => SetValue(ContentBackgroundProperty, value);
+        }
+        public static readonly DependencyProperty ContentBackgroundProperty =
+            DependencyProperty.Register(
+                name: nameof(ContentBackground),
+                propertyType: typeof(Brush),
+                ownerType: typeof(SideMenu),
+                typeMetadata: new PropertyMetadata(
+                    defaultValue: new SolidColorBrush(Color.FromArgb(255,200,200,200))));
+
+        [Category(Comum)]
         [Description("Obtem ou define um valor que representa a visibilidade da barra de navegação do frame.")]
         public NavigationUIVisibility NavigationUIVisibility
         {
