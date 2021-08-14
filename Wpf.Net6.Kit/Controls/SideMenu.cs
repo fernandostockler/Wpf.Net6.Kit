@@ -12,6 +12,9 @@ using Wpf.Net6.Kit.Controls.Shared;
 
 namespace Wpf.Net6.Kit.Controls
 {
+    /// <summary>
+    /// The SideMenu class represents a window with a left-hand menu for navigation and the remaining space for displaying content.
+    /// </summary>
     [TemplatePart(Name = PART_GridSplitter, Type = typeof(GridSplitter))]
     [TemplatePart(Name = PART_LeftPanelColumn, Type = typeof(ColumnDefinition))]
     [TemplatePart(Name = PART_HamburgerButton, Type = typeof(ButtonBase))]
@@ -38,6 +41,9 @@ namespace Wpf.Net6.Kit.Controls
             DefaultStyleKeyProperty.OverrideMetadata(forType: typeof(SideMenu), typeMetadata: new FrameworkPropertyMetadata(typeof(SideMenu)));
         }
 
+        /// <summary>
+        /// Public constructor
+        /// </summary>
         public SideMenu()
         {
             _ = CommandBindings.Add(new CommandBinding(
@@ -50,9 +56,12 @@ namespace Wpf.Net6.Kit.Controls
             SelectionChanged += SideMenu_SelectionChanged;
         }
 
+        /// <summary>
+        /// A RoutedCommand to open / close the side menu.
+        /// </summary>
         public static readonly RoutedCommand TogglePanelCommand = new(
             name: nameof(TogglePanelCommand),
-            ownerType: typeof(SideMenu),
+            ownerType: typeof(SideMenu), 
             inputGestures: new(new List<KeyGesture>() { new(Key.Space, ModifierKeys.Shift) }));
 
         private void TogglePanelCommandCanExecute(object sender, CanExecuteRoutedEventArgs e) => e.CanExecute = true;
@@ -116,13 +125,23 @@ namespace Wpf.Net6.Kit.Controls
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Gets or sets the System.Collection.Generics.Dictionary{string, FrameworkElement} used for navigation.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um dicionário com as páginas (qualquer FrameWorkElement) para navegação usado pelo Frame interno.")]
+        [Description("Gets or sets the System.Collection.Generics.Dictionary<string, FrameworkElement> used for navigation.")]
         public Dictionary<string, FrameworkElement> Pages
         {
             get => (Dictionary<string, FrameworkElement>)GetValue(PagesProperty);
             set => SetValue(PagesProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="Pages"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="Pages"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty PagesProperty =
             DependencyProperty.Register(
                 name: nameof(Pages),
@@ -131,13 +150,23 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: new Dictionary<string, FrameworkElement>()));
 
+        /// <summary>
+        /// Gets or sets the FrameworkElement that will be displayed if no items are selected or if the <see cref = "Pages" /> property contains no entries.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um FrameworkElement que representa a página de fundo da aplicação, que será exibida se nenhum item estiver selecionado ou se a propriedade Pages não contiver nenhuma entrada.")]
+        [Description("Gets or sets the FrameworkElement that will be displayed if no items are selected or if the Pages property contains no entries.")]
         public FrameworkElement BackgroundPage
         {
             get => (FrameworkElement)GetValue(BackgroundPageProperty);
             set => SetValue(BackgroundPageProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="BackgroundPage"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="BackgroundPage"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty BackgroundPageProperty =
             DependencyProperty.Register(
                 name: nameof(BackgroundPage),
@@ -145,13 +174,23 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenu),
                 typeMetadata: new PropertyMetadata(defaultValue: null));
 
+        /// <summary>
+        /// Gets or sets a FrameworkElement that will be displayed if the requested page does not have any matches on Pages
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um FrameworkElement que será exibido caso a página solicitada não tenha nenhuma correspondência em Pages[].")]
+        [Description("Gets or sets a FrameworkElement that will be displayed if the requested page does not have any matches on Pages[].")]
         public FrameworkElement PageNotFoudedMessage
         {
             get => (FrameworkElement)GetValue(PageNotFoudedMessageProperty);
             set => SetValue(PageNotFoudedMessageProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="PageNotFoudedMessage"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="PageNotFoudedMessage"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty PageNotFoudedMessageProperty =
             DependencyProperty.Register(
                 name: nameof(PageNotFoudedMessage),
@@ -167,13 +206,23 @@ namespace Wpf.Net6.Kit.Controls
             FontSize = 42.0
         };
 
+        /// <summary>
+        /// Gets or sets a brush representing the background color of the content area.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um pincel que representa a cor do fundo da área do conteúdo.")]
+        [Description("Gets or sets a brush representing the background color of the content area.")]
         public Brush ContentBackground
         {
             get => (Brush)GetValue(ContentBackgroundProperty);
             set => SetValue(ContentBackgroundProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="ContentBackground"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="ContentBackground"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty ContentBackgroundProperty =
             DependencyProperty.Register(
                 name: nameof(ContentBackground),
@@ -182,13 +231,23 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: new SolidColorBrush(Colors.Transparent)));
 
+        /// <summary>
+        /// Gets or sets a value representing the visibility of the frame's navigation bar.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um valor que representa a visibilidade da barra de navegação do frame.")]
+        [Description("Gets or sets a value representing the visibility of the frame's navigation bar.")]
         public NavigationUIVisibility NavigationUIVisibility
         {
             get => (NavigationUIVisibility)GetValue(NavigationUIVisibilityProperty);
             set => SetValue(NavigationUIVisibilityProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="NavigationUIVisibility"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="NavigationUIVisibility"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty NavigationUIVisibilityProperty =
             DependencyProperty.Register(
                 name: nameof(NavigationUIVisibility),
@@ -196,13 +255,23 @@ namespace Wpf.Net6.Kit.Controls
                 ownerType: typeof(SideMenu),
                 typeMetadata: new PropertyMetadata(NavigationUIVisibility.Hidden));
 
+        /// <summary>
+        /// Gets or sets a custom FrameworkElement located at the bottom left of the control.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um FrameworkElement personalizado localizado na parte inferior esquerda do controle.")]
+        [Description("Gets or sets a custom FrameworkElement located at the bottom left of the control.")]
         public FrameworkElement CustomArea
         {
             get => (FrameworkElement)GetValue(CustomAreaProperty);
             set => SetValue(CustomAreaProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="CustomArea"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="CustomArea"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty CustomAreaProperty =
             DependencyProperty.Register(
                 name: nameof(CustomArea),
@@ -211,13 +280,23 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: null));
 
+        /// <summary>
+        /// Gets or sets a value representing the always visible portion of the left pane.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um valor que representa a parte sempre visível do painel esquerdo.")]
+        [Description("Gets or sets a value representing the always visible portion of the left pane.")]
         public double MenuMinWidth
         {
             get => (double)GetValue(MenuMinWidthProperty);
             set => SetValue(MenuMinWidthProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="MenuMinWidth"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="MenuMinWidth"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty MenuMinWidthProperty =
             DependencyProperty.Register(
                 name: nameof(MenuMinWidth),
@@ -226,13 +305,23 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: 55.0));
 
+        /// <summary>
+        /// Gets or sets a value representing the maximum width of the left pane.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um valor que representa a largura máxima do painel esquerdo.")]
+        [Description("Gets or sets a value representing the maximum width of the left pane.")]
         public double MenuMaxWidth
         {
             get => (double)GetValue(MenuMaxWidthProperty);
             set => SetValue(MenuMaxWidthProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="MenuMaxWidth"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="MenuMaxWidth"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty MenuMaxWidthProperty =
             DependencyProperty.Register(
                 name: nameof(MenuMaxWidth),
@@ -241,13 +330,23 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: 320.0));
 
+        /// <summary>
+        /// Gets or sets a value representing the width of the left pane.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um valor que representa a largura do painel esquerdo.")]
+        [Description("Gets or sets a value representing the width of the left pane.")]
         public double MenuWidth
         {
             get => (double)GetValue(MenuWidthProperty);
             set => SetValue(MenuWidthProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="MenuWidth"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="MenuWidth"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty MenuWidthProperty =
             DependencyProperty.Register(
                 name: nameof(MenuWidth),
@@ -256,12 +355,22 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: 320.0));
 
-        [Description("Obtem ou define um pincel que descreve a cor do primeiro plano do botão que abre/fecha o painel esquerdo.")]
+        /// <summary>
+        /// Gets or sets a brush that describes the foreground color of the button that opens/closes the left panel.
+        /// </summary>
+        [Description("Gets or sets a brush that describes the foreground color of the button that opens/closes the left panel.")]
         public Brush HamburgerMenuForeground
         {
             get => (Brush)GetValue(HamburgerMenuForegroundProperty);
             set => SetValue(HamburgerMenuForegroundProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="HamburgerMenuForeground"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="HamburgerMenuForeground"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty HamburgerMenuForegroundProperty =
             DependencyProperty.Register(
                 name: nameof(HamburgerMenuForeground),
@@ -270,12 +379,22 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: Brushes.GreenYellow));
 
-        [Description("Obtem ou define um pincel que descreve a cor do GridSplitter.")]
+        /// <summary>
+        /// Gets or sets a brush that describes the color of the GridSplitter.
+        /// </summary>
+        [Description("Gets or sets a brush that describes the color of the GridSplitter.")]
         public Brush GridSplitterBackground
         {
             get => (Brush)GetValue(GridSplitterBackgroundProperty);
             set => SetValue(GridSplitterBackgroundProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="GridSplitterBackground"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="GridSplitterBackground"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty GridSplitterBackgroundProperty =
             DependencyProperty.Register(
                 name: nameof(GridSplitterBackground),
@@ -284,13 +403,23 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: Brushes.Transparent));
 
+        /// <summary>
+        /// Gets or sets a value representing the thickness of the GridSplitter.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um valor que representa a espessura da GridSplitter.")]
+        [Description("Gets or sets a value representing the thickness of the GridSplitter.")]
         public double GridSplitterWidth
         {
             get => (double)GetValue(GridSplitterWidthProperty);
             set => SetValue(GridSplitterWidthProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="GridSplitterBackground"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="GridSplitterBackground"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty GridSplitterWidthProperty =
             DependencyProperty.Register(
                 name: nameof(GridSplitterWidth),
@@ -299,13 +428,23 @@ namespace Wpf.Net6.Kit.Controls
                 typeMetadata: new PropertyMetadata(
                     defaultValue: 1.0));
 
+        /// <summary>
+        /// Gets or sets a value representing whether GridSplitter is enabled.
+        /// </summary>
         [Category(Comum)]
-        [Description("Obtem ou define um valor que representa se o GridSplitter está habilitado.")]
+        [Description("Gets or sets a value representing whether GridSplitter is enabled.")]
         public bool GridSplitterIsEnabled
         {
             get => (bool)GetValue(GridSplitterIsEnabledProperty);
             set => SetValue(GridSplitterIsEnabledProperty, value);
         }
+
+        /// <summary>
+        /// Identifies the <see cref="GridSplitterIsEnabled"/> dependency property.
+        /// </summary>
+        /// <returns>
+        /// The identifier for the <see cref="GridSplitterIsEnabled"/> dependency property.
+        /// </returns>
         public static readonly DependencyProperty GridSplitterIsEnabledProperty =
             DependencyProperty.Register(
                 name: nameof(GridSplitterIsEnabled),
@@ -321,6 +460,9 @@ namespace Wpf.Net6.Kit.Controls
             return child is null ? throw new MissingTemplatePartException(childName, typeof(T)) : child;
         }
 
+        /// <summary>
+        /// Builds the visual tree for the control when a new template is applied.
+        /// </summary>
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -331,7 +473,21 @@ namespace Wpf.Net6.Kit.Controls
             PartGridSplitter.DragCompleted += GridSplitter_DragCompleted;
         }
 
+        /// <summary>
+        /// Creates or identifies the element used to display a specified item
+        /// </summary>
+        /// <returns>
+        /// A SideMenuItem.
+        /// </returns>
         protected override DependencyObject GetContainerForItemOverride() => new SideMenuItem();
+
+        /// <summary>
+        /// Determines if the specified item is (or is eligible to be) its own ItemContainer.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns>
+        /// A SideMenuItem.
+        /// </returns>
         protected override bool IsItemItsOwnContainerOverride(object item) => item is SideMenuItem;
 
         private const string PART_GridSplitter = "PART_GridSplitter";
