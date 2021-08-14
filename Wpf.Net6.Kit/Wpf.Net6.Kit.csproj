@@ -9,6 +9,10 @@
     <Description>A library with controls, styles and classes that let you start a WPF project with .Net6 easily and quickly.</Description>
     <PackageTags>wpf;custom-window;mvvm;wpf-control;</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Version>1.0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
