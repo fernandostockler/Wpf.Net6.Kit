@@ -39,10 +39,7 @@ namespace Wpf.Net6.Kit.Mvvm
         /// nullable <see cref="object"/> parameter, it is recommended that if <typeparamref name="T"/> is a reference type,
         /// you should always declare it as nullable, and to always perform checks within <paramref name="execute"/>.
         /// </remarks>
-        public RelayCommand(Action<T?> execute)
-        {
-            this.execute = execute;
-        }
+        public RelayCommand(Action<T?> execute) => this.execute = execute;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RelayCommand{T}"/> class.
@@ -57,17 +54,11 @@ namespace Wpf.Net6.Kit.Mvvm
         }
 
         /// <inheritdoc/>
-        public void NotifyCanExecuteChanged()
-        {
-            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-        }
+        public void NotifyCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 
         /// <inheritdoc/>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool CanExecute(T? parameter)
-        {
-            return this.canExecute?.Invoke(parameter) != false;
-        }
+        public bool CanExecute(T? parameter) => canExecute?.Invoke(parameter) != false;
 
         /// <inheritdoc/>
         public bool CanExecute(object? parameter)
@@ -87,14 +78,11 @@ namespace Wpf.Net6.Kit.Mvvm
         {
             if (CanExecute(parameter))
             {
-                this.execute(parameter);
+                execute(parameter);
             }
         }
 
         /// <inheritdoc/>
-        public void Execute(object? parameter)
-        {
-            Execute((T?)parameter);
-        }
+        public void Execute(object? parameter) => Execute((T?)parameter);
     }
 }
