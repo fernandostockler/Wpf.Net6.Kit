@@ -95,7 +95,7 @@
                             <ColumnDefinition x:Name="GridSplitterColumn" Width="Auto" />
                             <ColumnDefinition x:Name="RightPanelColumn" Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Border
+                        <Border x:Name="SideMenuBorder"
                             HorizontalAlignment="Stretch"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -131,7 +131,7 @@
                                 </ContentControl>
                             </Grid>
                         </Border>
-                        <GridSplitter
+                        <GridSplitter 
                             x:Name="PART_GridSplitter"
                             Grid.Column="1"
                             Width="{TemplateBinding GridSplitterWidth}"

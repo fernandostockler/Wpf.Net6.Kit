@@ -180,7 +180,7 @@ namespace Wpf.Net6.Kit.Controls
                 propertyType: typeof(Brush),
                 ownerType: typeof(SideMenu),
                 typeMetadata: new PropertyMetadata(
-                    defaultValue: new SolidColorBrush(Color.FromArgb(255,200,200,200))));
+                    defaultValue: new SolidColorBrush(Colors.Transparent)));
 
         [Category(Comum)]
         [Description("Obtem ou define um valor que representa a visibilidade da barra de navegação do frame.")]
